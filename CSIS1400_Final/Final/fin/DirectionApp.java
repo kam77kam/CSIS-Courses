@@ -1,3 +1,4 @@
+package fin;
 /*
 Assignment: Final Code CSIS 1400
 Name: Kamdon Bird

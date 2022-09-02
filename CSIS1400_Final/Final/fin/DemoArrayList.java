@@ -1,9 +1,9 @@
-/*
-Author: Kamdon Bird
-Date: 12/10/2018
-Assignment: DemoArrayList (Final)
-*/
 package fin;
+/*
+Assignment: Final Code CSIS 1400
+Name: Kamdon Bird
+Date: 12/10/18
+*/
 
 //imports
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class DemoArrayList{
       
       //creating a loop to print the numbers backwards
       for(int i = numbers.size(); i >= 1; i--){
-         System.out.print(el + " ");
+         System.out.print(i + " ");
       }
    }
 }

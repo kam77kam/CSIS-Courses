@@ -1,9 +1,10 @@
-/*
-Author: Kamdon Bird
-Date: 12/10/2018
-Assignment: DemoArray (Final)
-*/
 package fin;
+
+/*
+Assignment: Final Code CSIS 1400
+Name: Kamdon Bird
+Date: 12/10/18
+*/
 
 //imports
 import java.util.Arrays;
