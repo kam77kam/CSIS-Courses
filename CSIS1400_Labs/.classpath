@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="LabAddress"/>
+	<classpathentry kind="src" path="LabMinMax"/>
+	<classpathentry kind="src" path="LabArray"/>
+	<classpathentry kind="src" path="LabBall2"/>
+	<classpathentry kind="src" path="LabCalculator"/>
+	<classpathentry kind="src" path="LabClassArrays"/>
+	<classpathentry kind="src" path="LabCountry"/>
+	<classpathentry kind="src" path="LabDice"/>
+	<classpathentry kind="src" path="LabEmployee"/>
+	<classpathentry kind="src" path="LabEratosthenes"/>
+	<classpathentry kind="src" path="LabHoppityHop"/>
+	<classpathentry kind="src" path="LabMarbles"/>
+	<classpathentry kind="src" path="LabMartians"/>
+	<classpathentry kind="src" path="LabPartyGuest"/>
+	<classpathentry kind="src" path="LabPattern3"/>
+	<classpathentry kind="src" path="LabRandom"/>
+	<classpathentry kind="src" path="LabTimeTable"/>
+	<classpathentry kind="src" path="LabVariables"/>
+	<classpathentry kind="src" path="LabWhile"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

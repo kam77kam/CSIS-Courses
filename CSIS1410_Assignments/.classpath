@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="A01 - ItemList"/>
+	<classpathentry kind="src" path="A02 - CodingBat"/>
+	<classpathentry kind="src" path="A03 - Gps with Unit Tests"/>
+	<classpathentry kind="src" path="A04 - Inheritance"/>
+	<classpathentry kind="src" path="A05 - Interface"/>
+	<classpathentry kind="src" path="A06 - Redcount"/>
+	<classpathentry kind="src" path="A07 - Changing Images"/>
+	<classpathentry kind="src" path="A08 - Resource Exploration"/>
+	<classpathentry kind="src" path="A09 - List Vs Set"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
