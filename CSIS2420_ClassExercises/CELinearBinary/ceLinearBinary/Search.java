@@ -21,6 +21,7 @@ public class Search {
 	}
 	//Binary Search
 	public static int binary(int[] numbers, int key) {
+		if (numbers == null || numbers.length == 0) return -1;
 		int low = 0;
 		int high = numbers.length;
 		while(low <= high) {

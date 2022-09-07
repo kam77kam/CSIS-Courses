@@ -44,12 +44,12 @@ class SearchTest {
 	
 	//Binary jUnit Tests
 	@Test
-	void binary_willSort_returnIndex0() {
-		int list[] = {10,5};
-		int key = list[list.length-1];
+	void binary_null_returnIndex0() {
+		int list[] = null;
+		int key = 40;
 		int result = ceLinearBinary.Search.binary(list, key);
 		//Comparing index 0 to make sure the sort array properly changed
-		assertEquals(0, result, "Index moved properly ");
+		assertEquals(-1, result, "Index moved properly ");
 	}
 	@Test
 	void binary_middleElement_returnIndexOfElement() {
