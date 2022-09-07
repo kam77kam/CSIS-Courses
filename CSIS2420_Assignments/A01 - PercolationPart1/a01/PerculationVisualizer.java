@@ -7,7 +7,7 @@ import edu.princeton.cs.algs4.StdDraw;
 
 public class PerculationVisualizer {
 
-    // delay in miliseconds (controls animation speed)
+    // delay in milliseconds (controls animation speed)
     private final static int DELAY = 0; // 100;
 	private static final int DELAY_BETWEEN_FILES = 5000;
 

@@ -7,5 +7,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="A01 - PercolationPart1/a01/algs4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
