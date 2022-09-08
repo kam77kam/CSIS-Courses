@@ -6,8 +6,8 @@
 package ceLinearBinary;
 ////only import if Easy way is needed
 //import java.util.LinkedList;
-import java.util.Collections;
-import java.util.List;
+//import java.util.Collections;
+//import java.util.List;
 
 public class Search {
 	
