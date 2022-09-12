@@ -12,7 +12,7 @@ public class PerculationVisualizer {
 	private static final int DELAY_BETWEEN_FILES = 5000;
 
     // draw N-by-N percolation system
-    public static void draw(Percolation perc, int N) {
+    public static void draw(a01.Percolation perc, int N) {
         StdDraw.clear();
         StdDraw.setPenColor(StdDraw.BLACK);
         StdDraw.setXscale(-.05*N, 1.05*N);
