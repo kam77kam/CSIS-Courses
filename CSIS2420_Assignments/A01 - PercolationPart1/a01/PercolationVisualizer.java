@@ -5,7 +5,7 @@ import java.awt.Font;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdDraw;
 
-public class PerculationVisualizer {
+public class PercolationVisualizer {
 
     // delay in milliseconds (controls animation speed)
     private final static int DELAY = 0; // 100;

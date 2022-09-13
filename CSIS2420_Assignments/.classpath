@@ -2,11 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="A01 - PercolationPart1"/>
 	<classpathentry kind="src" path="A01 - PercolationPart2"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="A01 - PercolationPart1/a01/algs4.jar"/>
+	<classpathentry exported="true" kind="lib" path="A01 - PercolationPart1/a01/algs4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
