@@ -10,13 +10,15 @@ package a01;
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation{
-	int area, top, bottom;
+	int area, top, bottom, n, openSites;
 	boolean[][] grid;
 	WeightedQuickUnionUF uf;
 	
 	/* Percolation class sets the N x N grid with all sites blocked
 	 * @param n*/
 	public Percolation(int n) {
+		//Using 'n' for unique id
+		n = this.n;
 		//Throws exception if value is below 0
 		if (n <= 0) throw new java.lang.IllegalArgumentException();
 		//Created size of percolation example 4*4=16 sites
@@ -30,7 +32,7 @@ public class Percolation{
 		
 		top = area;
 		bottom = top - 1;
-		/*nested for loop to initialize each index of the grid
+		/*Nested for-loop to initialize each index of the grid
 		to have set true */
 		for(int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[i].length; j++) {
@@ -45,6 +47,8 @@ public class Percolation{
 		if (verifyRange(i,j)) {
 			if (!isOpen(i,j)) {
 				grid[i][j] = false;
+				unionNeighbors(i,j);
+				openSites++;
 			}
 		}
 	}
@@ -82,5 +86,45 @@ public class Percolation{
 	public boolean verifyRange(int i, int j) {
 		if (i <= 0 || j <= 0) throw new java.lang.IllegalArgumentException();
 		else return true;
+	}
+	
+	/*Returns a unique id for site (i=row, j=column)
+	 * @param i
+	 * @param j*/
+	private int siteID(int i, int j) {
+		return (i * n) + (j);
+	}
+	
+	/*Unions all neighboring sites (row i, column j)
+	 * @param i
+	 * @param j*/
+	public void unionNeighbors(int i, int j) {
+		if (j != 0){
+			if (isOpen(i, j - 1)) {
+				uf.union((siteID(i, j)), siteID(i, j - 1));
+			}
+		}
+		if (j != (n - 1)){
+			if (isOpen(i, j + 1)) {
+				uf.union((siteID(i, j)), siteID(i, j + 1));
+			}
+		}
+		if (i != 0){
+			if (isOpen(i - 1, j)) {
+				uf.union((siteID(i, j)), siteID(i - 1, j));
+			}
+		}
+		if (i != (n - 1)){
+			if (isOpen(i + 1, j)) {
+				uf.union((siteID(i, j)), siteID(i + 1, j));
+			}
+		}
+		if (i == 0)uf.union((siteID(i, j)), top);
+		if (i == (n - 1))uf.union((siteID(i, j)), bottom);
+	}
+	
+	//Returns the counted open sites for PercolationVisulizer
+	public int countedOfOpenSites() {
+		return openSites;
 	}
 }
