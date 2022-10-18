@@ -1,18 +1,14 @@
 package a01;
 /*
- * @author Kamdon Bird & Jaykant Chaudhary-Lekhi 
+ * @author Kamdon Bird 
  * Class: CSIS 2420
  * Created: 9/19/2022
  * Assignment: A01 - PercolationStats
  */
 
-import java.io.FileNotFoundException;
-
-import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
-import edu.princeton.cs.algs4.Stopwatch;
 
 public class PercolationStats {
 
@@ -20,7 +16,7 @@ public class PercolationStats {
 	final private double n;
 	final private double t;
 	
-	// perform T independent experiments on an N­by­N grid
+	// perform T independent experiments on an Nï¿½byï¿½N grid
 	public PercolationStats(int N, int T) 
 	
 	{

@@ -1,5 +1,5 @@
 /*
- * @author Kamdon Bird & Jaykant Chaudhary-Lekhi 
+ * @author Kamdon Bird
  * Class: CSIS 2420
  * Created: 9/12/2022
  * Assignment: A01 - Percolation
@@ -17,8 +17,6 @@ public class Percolation{
 	/* Percolation class sets the N x N grid with all sites blocked
 	 * @param n*/
 	public Percolation(int n) {
-		//Using 'n' for unique id
-		n = this.n;
 		//Throws exception if value is below 0
 		if (n <= 0) throw new java.lang.IllegalArgumentException();
 		//Created size of percolation example 4*4=16 sites
@@ -84,7 +82,7 @@ public class Percolation{
 	 * @param j
 	 * @return boolean*/
 	public boolean verifyRange(int i, int j) {
-		if (i <= 0 || j <= 0) throw new java.lang.IllegalArgumentException();
+		if (i < 0 || j < 0) throw new java.lang.IllegalArgumentException();
 		else return true;
 	}
 	
