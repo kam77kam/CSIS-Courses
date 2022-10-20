@@ -21,18 +21,16 @@ class PercolationTest {
 			}
 		}
 	}
-//	@Test
-//	void () {
-//		fail("Not yet implemented");
-//	}
-//	@Test
-//	void test() {
-//		fail("Not yet implemented");
-//	}
-//	@Test
-//	void test() {
-//		fail("Not yet implemented");
-//	}
+	@Test
+	void TestIfSiteCanOpen() {
+		a01.Percolation p2 = new a01.Percolation(2);
+//		for (int i = 0; i < 2; i++) {
+//			for (int j = 0; j < 2; j++) {
+				p2.open(0, 1);
+				assertTrue(p2.isOpen(0, 1));
+//			}
+//		}
+	}
 //	@Test
 //	void test() {
 //		fail("Not yet implemented");
@@ -45,5 +43,26 @@ class PercolationTest {
 //	void test() {
 //		fail("Not yet implemented");
 //	}
-
-}
+//	@Test
+//	void test() {
+//		fail("Not yet implemented");
+//	}
+//	@Test
+//	void test() {
+//		fail("Not yet implemented");
+//	}
+//	}
+//	@Test
+//	void test() {
+//		fail("Not yet implemented");
+//	}
+//	}
+//	@Test
+//	void test() {
+//		fail("Not yet implemented");
+//	}
+//	@Test
+//	void test() {
+//		fail("Not yet implemented");
+//	}
+	}
