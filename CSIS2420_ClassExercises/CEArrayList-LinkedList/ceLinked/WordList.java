@@ -1,5 +1,4 @@
 package ceLinked;
-
 /**
  * WordList is a singly-linked list of Strings.
  * It is designed as a practice opportunity to
@@ -11,12 +10,12 @@ public class WordList {
 	private Node head; // first node of the list or null
 	private Node tail; // last node of the list or null
 	private int n;     // number of words in the list
-
+	
 	/**
 	 * Node of LinkedList that stores the item and a
 	 * single reference to the next node.
 	 */
-	private class Node {
+	public class Node {
 		private String item;
 		private Node next;
 	}
@@ -50,7 +49,18 @@ public class WordList {
 	 * @param newItem
 	 */
 	public void prepend(String newItem) {		
-		// TODO 2
+		Node newNode = new Node();
+		newNode.item = newItem;
+		
+		if (isEmpty()) {
+			head = newNode;
+			tail = newNode;
+		}
+		else {
+			newNode.next = head;
+			head = newNode;
+		}
+		n++;
 	}
 	
 	/** 
@@ -61,8 +71,15 @@ public class WordList {
 	 * @param item
 	 * @return index of the first occurrence of the item; -1 if the word was not found.
 	 */
-	public int indexOf(String item) {		
-		return 0; // TODO 3
+	public int indexOf(String item) {
+		int i = 0;
+		for(Node n = head; n != null; n = n.next) {
+			if(n.item == item) {
+				return i;
+			}
+			i++;
+		}
+		return -1;
 	}
 	
 	/** 
@@ -72,7 +89,12 @@ public class WordList {
 	 * @return true if the item is contained in the list; false otherwise.
 	 */
 	public boolean contains(String item) {	
-		return false; // TODO 4
+		for(Node n = head; n != null; n = n.next) {
+			if(n.item == item) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	/**
@@ -108,19 +130,34 @@ public class WordList {
 	public static void main(String[] args) {
 		WordList list = new WordList();
 		System.out.println("size: " + list.size());
-		
-		// TODO 1
 		// Dynamically determine whether the list is empty. If so, print 
-		// 'The list is empty.' otherwise print 'The list is not empty.'			
-		 
+		// 'The list is empty.' otherwise print 'The list is not empty.'
+		String listCondition = list.isEmpty() ? "" : "not ";
+		System.out.println("TODO 1: The list is " + listCondition + "empty");
+		System.out.println();
+		
 		list.append("ant");
 		list.append("bat");
 		list.append("cow");
 		list.append("dog");
-		
+		System.out.println("TODO 2: prepend 'ape'");
+		list.prepend("ape");
 		System.out.println("list: " + list);
-
-
+		System.out.println();
+		System.out.println("TODO 2: prepend 'auk'");
+		list.prepend("auk");
+		System.out.println("list: " + list);
+		System.out.println();
+		System.out.println("TODO 3: indexOf");
+		System.out.println("Index of dog: " + list.indexOf("dog"));
+		System.out.println("Index of auk: " + list.indexOf("auk"));
+		System.out.println("Index of yak: " + list.indexOf("yak"));
+		System.out.println();
+		System.out.println("TODO 4: contains");
+		String element1 = list.contains("cow") ? "" : "not ";
+		System.out.println("cow is " + element1 + "included in the list");
+		String element2 = list.contains("yak") ? "" : "not ";
+		System.out.println("yak is " + element2 + "included in the list");
 	}
 
 }
