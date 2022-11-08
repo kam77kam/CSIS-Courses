@@ -9,6 +9,7 @@
 	<classpathentry kind="src" path="CELinearBinary"/>
 	<classpathentry kind="src" path="jUnitTests"/>
 	<classpathentry kind="src" path="CEArrayList-LinkedList"/>
+	<classpathentry kind="src" path="CEStackQueue"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="CEGettingStarted/lib/algs4.jar"/>
 	<classpathentry kind="output" path="bin"/>
