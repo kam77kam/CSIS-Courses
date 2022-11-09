@@ -1,6 +1,5 @@
 package ceStackQueue;
 
-import ceLinked.WordList.Node;
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.Stack;
@@ -76,11 +75,6 @@ public class StackQueue {
 		return q;
 	}
 	
-	private static Iterable<Character> transformationC(Queue<Character> q) {
-		q.iterator();
-		return q;
-	}
-	
 	public static void main(String[] args) {
 		Queue<Character> inputQueue = new Queue<>();
 		for(Character c : new Character[] {'9', 'h', ';', 'e', 'l', '#', 'A', 'l', 'D', '0', 'o', '.'}) {
@@ -111,13 +105,6 @@ public class StackQueue {
 			inputQueue.enqueue(c);
 		}
 		testTransformB(inputQueue);
-		//My addition
-		for(Character c : new Character[] {'/', 'A', '|', 'A', '\\', 'o'}) {
-			inputQueue.enqueue(c);
-		}
-		testTransformC(inputQueue);
-		//End Addition
-		
 		testTransformB(emptyQueue);
 	}
 
@@ -134,14 +121,6 @@ public class StackQueue {
 		StdOut.println("TransformB (input: [" + queue + "])");
 		StdOut.print("output: [");
 		for (Character c : transformationB(queue)) {
-			StdOut.print(c + " "); 
-		}
-		StdOut.println("]\n");
-	}
-	private static void testTransformC(Queue<Character> queue) {
-		StdOut.println("TransformC (input: [" + queue + "])");
-		StdOut.print("output: [");
-		for (Character c : transformationC(queue)) {
 			StdOut.print(c + " "); 
 		}
 		StdOut.println("]\n");
