@@ -7,7 +7,6 @@
 	</classpathentry>
 	<classpathentry kind="src" path="CEGettingStarted"/>
 	<classpathentry kind="src" path="CELinearBinary"/>
-	<classpathentry kind="src" path="jUnitTests"/>
 	<classpathentry kind="src" path="CEArrayList-LinkedList"/>
 	<classpathentry kind="src" path="CEStackQueue"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
