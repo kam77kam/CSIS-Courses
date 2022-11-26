@@ -5,6 +5,7 @@
  * Assignment: A02 - RandomizedQueuesAndDeques
  */
 package a02;
+
 import edu.princeton.cs.algs4.StdOut;
 import java.util.Iterator;
 import java.lang.NullPointerException;
@@ -21,21 +22,21 @@ public class Deque<Item> implements Iterable<Item> {
 		private Node<Item> next;
 		private Node<Item> prev;
 	}
-	// construct an empty deque
+	// Construct an empty deque
 	public Deque() {
 		first = null;
 		last = null;
 		n = 0;
 	}
-	// is the deque empty?
+	// Is the deque empty?
 	public boolean isEmpty() {
 		return first == null;
 	}
-	// return the number of items on the deque
+	// Return the number of items on the deque
 	public int size() {
 		return n;
 	}
-	// insert the item at the front
+	// Insert the item at the front
 	public void addFirst(Item item) {
 		if (item == null) throw new NullPointerException();
 	    Node<Item> oldfirst = first;
@@ -43,14 +44,11 @@ public class Deque<Item> implements Iterable<Item> {
 	    first.item = item;
 	    first.next = oldfirst;
 	    first.prev = null;
-	    if (oldfirst != null) {
-	      oldfirst.prev = first;
-	    } else {
-	      last = first;
-	    }
+	    if (oldfirst != null) oldfirst.prev = first;
+	    else last = first;
 	    n++;
 	}
-	// insert the item at the end
+	// Insert the item at the end
 	public void addLast(Item item) {
 		if (item == null) throw new NullPointerException();
 	    Node<Item> oldLast = last;
@@ -58,35 +56,67 @@ public class Deque<Item> implements Iterable<Item> {
 	    last.item = item;
 	    last.next = null;
 	    last.prev = oldLast;
-	    if (oldLast != null) {
-	      oldLast.next = last;
-	    } else {
-	      first = last;
-	    }
+	    if (oldLast != null) oldLast.next = last;
+	    else first = last;
 	    n++;
 	}
-	//delete and return the item at the front
+	// Delete and return the item at the front
 	public Item removeFirst() {
-		if(first == null) throw new NoSuchElementException("No Queue");
+		if(n == 0) 
+			throw new NoSuchElementException("Nothing to Dequeue");
+		Node<Item> oldFirst = first;
+		first = oldFirst.next;
+		if (first == null) last = null;
+		n--;
+		return oldFirst.item;
 	}
-	// delete and return the item at the end
+	// Delete and return the item at the end
 	public Item removeLast() {
-		if(last == null) throw new NoSuchElementException("No Queue");
+		if(n == 0) 
+			throw new NoSuchElementException("Nothing to Dequeue");
+		Node<Item> oldLast = last;
+		last = oldLast.prev;
+		if(last == null) first = null;
+		n--;
+		return oldLast.item;
 	}
-	//Returns an iterator that iterates over the items in this queue in FIFO order.
+	// Returns an iterator that iterates over the items in this queue in FIFO order.
 	public Iterator<Item> iterator() {
-		
+		return new IItemIterator();
 	}
-
-	// unit testing
+	
+	
+	
+	private class IItemIterator implements Iterator<Item> {
+		private Node<Item> current = first;
+		
+		public boolean hasNext() {
+			return current != null;
+		}
+		
+		public void remove() {
+			throw new java.lang.UnsupportedOperationException("'Remove' is not acceptable ");
+		}
+		public Item next() {
+			if (current == null) 
+				throw new java.lang.UnsupportedOperationException();
+			Item item = current.item;
+			current = current.next;
+			return item;
+		}
+	}
+	// Unit testing
 	public static void main(String[] args) {
 		Deque<String> myNameArray = new Deque<String>();
 		myNameArray.addFirst("Kamdon");
-		myNameArray.addFirst("Bird");
 		myNameArray.addLast("Troy");
-		for(String c : myNameArray) {
-			StdOut.print(c + " ");
+		myNameArray.addLast("Bird");
+		myNameArray.removeLast();
+		Iterator<String> iterator = myNameArray.iterator();
+		while(iterator.hasNext()) {
+			System.out.println(iterator.next());
 		}
 		
 	}
+	
 }
