@@ -6,12 +6,40 @@
  */
 package a02;
 
-import edu.princeton.cs.algs4.StdOut;
 import java.util.Iterator;
 import java.lang.NullPointerException;
 import java.util.NoSuchElementException;
 
 public class Deque<Item> implements Iterable<Item> {
+	
+	/**@param <Item> the type of elements returned by this iterator*/
+	private class IItemIterator implements Iterator<Item> {
+		private Node<Item> current = first; //store the first node
+		
+		/** @return boolean. checks if the iteration has more elements*/
+		public boolean hasNext() {
+			return current != null;
+		}
+	     /** @throws UnsupportedOperationException if the {@code remove}        
+	       * operation is not supported by this iterator
+	       */
+		public void remove() {
+			throw new java.lang.UnsupportedOperationException("remove");
+		}
+		/**
+	     * Returns the next element in the iteration.
+	     * @param <Item> the type of elements returned by this iterator
+	     * @return the next element in the iteration
+	     * @throws UnsupportedOperationException if the iteration has no elements
+	     */
+		public Item next() {
+			if (current == null) 
+				throw new java.lang.UnsupportedOperationException();
+			Item item = current.item;
+			current = current.prev;
+			return item;
+		}
+	}
 	
 	private int n; //Counts size of Queue
 	private Node<Item> first; //First Item in LinkedList Structure 
@@ -101,34 +129,7 @@ public class Deque<Item> implements Iterable<Item> {
 	public Iterator<Item> iterator() {
 		return new IItemIterator();
 	}
-	/**@param <Item> the type of elements returned by this iterator*/
-	private class IItemIterator implements Iterator<Item> {
-		private Node<Item> current = first; //store the first node
-		
-		/** @return boolean. checks if the iteration has more elements*/
-		public boolean hasNext() {
-			return current != null;
-		}
-	     /** @throws UnsupportedOperationException if the {@code remove}        
-	       * operation is not supported by this iterator
-	       */
-		public void remove() {
-			throw new java.lang.UnsupportedOperationException("remove");
-		}
-		/**
-	     * Returns the next element in the iteration.
-	     * @param <Item> the type of elements returned by this iterator
-	     * @return the next element in the iteration
-	     * @throws UnsupportedOperationException if the iteration has no elements
-	     */
-		public Item next() {
-			if (current == null) 
-				throw new java.lang.UnsupportedOperationException();
-			Item item = current.item;
-			current = current.prev;
-			return item;
-		}
-	}
+
 	// Unit testing
 	public static void main(String[] args) {
 		Deque<String> myNameArray = new Deque<String>();
