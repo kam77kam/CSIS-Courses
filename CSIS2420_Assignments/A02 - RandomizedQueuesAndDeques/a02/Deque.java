@@ -22,21 +22,26 @@ public class Deque<Item> implements Iterable<Item> {
 		private Node<Item> next; //The 'next' Node of type 'Item type' will point to the next node in the LinkedList structure
 		private Node<Item> prev; //The 'prev' Node of type 'Item type' will point to the previous node in the LinkedList structure
 	}
-	// Constructs an empty Queue/Deque
+	/** @see Constructs an empty Queue/Deque*/
 	public Deque() {
 		first = null;
 		last = null;
 		n = 0;
 	}
-	// Checks if the Deque is empty
+	/** @see Checks if the Deque is empty 
+	  *	@return boolean
+	  */
 	public boolean isEmpty() {
 		return n == 0;
 	}
-	// Returns the number of items on the deque
+	/** @return Number of items on the deque/LinkedList structure*/
 	public int size() {
 		return n;
 	}
-	// Inserts an item at the front of the deque LinkedList structure
+	/**@see Inserts an item at the front of the deque LinkedList structure
+	  *@throws NullPointerException if item is null
+	  *@param item
+	  */
 	public void addFirst(Item item) {
 		if (item == null) throw new NullPointerException();
 	    Node<Item> oldFirst = first; //store the current first element
@@ -48,7 +53,10 @@ public class Deque<Item> implements Iterable<Item> {
 	    else last = first; //if this is the first added node it will also be the last node
 	    n++; //increment count
 	}
-	// Inserts an item at the end of the deque LinkedList structure
+	/**@see Inserts an item at the end of the deque LinkedList structure
+	  *@throws NullPointerException if item is null
+	  *@param item
+	  */
 	public void addLast(Item item) {
 		if (item == null) throw new NullPointerException();
 	    Node<Item> oldLast = last; //store the current last element
@@ -60,7 +68,8 @@ public class Deque<Item> implements Iterable<Item> {
 	    else first = last; //if this is the first added node it will also be the first node
 	    n++; //increment count
 	}
-	// Delete and return the item at the front
+	/**@return Delete and returns the item at the front
+	  *@throws NoSuchElementException if Deque/LinkedList structure is empty*/
 	public Item removeFirst() {
 		if(isEmpty()) throw new NoSuchElementException("Nothing to Dequeue"); //checks if list is empty
 		Node<Item> oldFirst = first; //store the first node in the list
@@ -73,9 +82,11 @@ public class Deque<Item> implements Iterable<Item> {
 		n--; //decrement count
 		return oldFirst.item; //returns the item of previous node to the first node which might be null
 	}
-	// Delete and return the item at the end
+	/**@return Delete and returns the item at the end
+	  *@throws NoSuchElementException if Deque/LinkedList structure is empty*/
 	public Item removeLast() {
 		if(isEmpty()) throw new NoSuchElementException("Nothing to Dequeue"); //checks if list is empty
+		if(last == first) removeFirst();
 		Node<Item> oldLast = last; //store the last node in the list
 		if(last.next == null) { //if there is nothing next of the last node
 			last = null; //nothing exists next of the last, set last to null	
@@ -90,19 +101,26 @@ public class Deque<Item> implements Iterable<Item> {
 	public Iterator<Item> iterator() {
 		return new IItemIterator();
 	}
-	
-	
-	
+	/**@param <Item> the type of elements returned by this iterator*/
 	private class IItemIterator implements Iterator<Item> {
-		private Node<Item> current = first;
+		private Node<Item> current = first; //store the first node
 		
+		/** @return boolean. checks if the iteration has more elements*/
 		public boolean hasNext() {
 			return current != null;
 		}
-		
+	     /** @throws UnsupportedOperationException if the {@code remove}        
+	       * operation is not supported by this iterator
+	       */
 		public void remove() {
-			throw new java.lang.UnsupportedOperationException("'Remove' is not acceptable ");
+			throw new java.lang.UnsupportedOperationException("remove");
 		}
+		/**
+	     * Returns the next element in the iteration.
+	     * @param <Item> the type of elements returned by this iterator
+	     * @return the next element in the iteration
+	     * @throws UnsupportedOperationException if the iteration has no elements
+	     */
 		public Item next() {
 			if (current == null) 
 				throw new java.lang.UnsupportedOperationException();
@@ -117,18 +135,21 @@ public class Deque<Item> implements Iterable<Item> {
 		myNameArray.addFirst("Bird");
 		myNameArray.addFirst("Troy");
 		myNameArray.addFirst("Kamdon");
-		myNameArray.removeFirst();
-		myNameArray.removeLast();
-		myNameArray.removeFirst();
 		Iterator<String> iterator = myNameArray.iterator();
 		while(iterator.hasNext()) {
 			System.out.println(iterator.next());
 		}
-		myNameArray.addFirst("Sami");
-		myNameArray.addFirst("Barton");
-		while(iterator.hasNext()) {
-			System.out.println(iterator.next());
+		System.out.println();
+		Deque<String> myNameArray2 = new Deque<String>();
+		myNameArray2.addFirst("Barton");
+		myNameArray2.addFirst("Sami");
+		Iterator<String> iterator2 = myNameArray2.iterator();
+		while(iterator2.hasNext()) {
+			System.out.println(iterator2.next());
 		}
+		System.out.println();
+		System.out.println("Size of myNameArray: " + myNameArray.size());
+		System.out.println("Size of myNameArray2: " + myNameArray2.size());
 		
 	}
 	
