@@ -14,8 +14,26 @@ public class TestDeque {
 	Deque<String> myNameArray = new Deque<String>();
 	
 	@Test
-	void iterator() {
-		
+	void iteratorHasNextFalse() {
+		assertEquals(false, myNameArray.iterator().hasNext());
+	}
+	@Test
+	void iteratorHasNextTrue() {
+		myNameArray.addFirst("Kamdon");
+		assertEquals(true, myNameArray.iterator().hasNext());
+	}
+	@Test
+	void iteratorNextExceptionCase() {
+		assertThrows(java.lang.UnsupportedOperationException.class, () -> myNameArray.iterator().next());
+	}
+	@Test
+	void iteratorNext() {
+		myNameArray.addFirst("Kamdon");
+		assertEquals("Kamdon", myNameArray.iterator().next());
+	}
+	@Test
+	void iteratorRemove() {
+		assertThrows(java.lang.UnsupportedOperationException.class, () -> myNameArray.iterator().remove());
 	}
 	@Test
 	void addFirst() {

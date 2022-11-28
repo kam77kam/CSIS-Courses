@@ -126,32 +126,8 @@ public class Deque<Item> implements Iterable<Item> {
 		return oldLast.item; //returns the item of next node to the last node which might be null
 	}
 	// Returns an iterator that iterates over the items in this queue in FIFO order.
+	@Override
 	public Iterator<Item> iterator() {
 		return new IItemIterator();
 	}
-
-	// Unit testing
-	public static void main(String[] args) {
-		Deque<String> myNameArray = new Deque<String>();
-		myNameArray.addFirst("Bird");
-		myNameArray.addFirst("Troy");
-		myNameArray.addFirst("Kamdon");
-		Iterator<String> iterator = myNameArray.iterator();
-		while(iterator.hasNext()) {
-			System.out.println(iterator.next());
-		}
-		System.out.println();
-		Deque<String> myNameArray2 = new Deque<String>();
-		myNameArray2.addFirst("Barton");
-		myNameArray2.addFirst("Sami");
-		Iterator<String> iterator2 = myNameArray2.iterator();
-		while(iterator2.hasNext()) {
-			System.out.println(iterator2.next());
-		}
-		System.out.println();
-		System.out.println("Size of myNameArray: " + myNameArray.size());
-		System.out.println("Size of myNameArray2: " + myNameArray2.size());
-		
-	}
-	
 }
