@@ -2,6 +2,9 @@
 <classpath>
 	<classpathentry kind="src" path="A01 - Percolation"/>
 	<classpathentry kind="src" path="A02 - RandomizedQueuesAndDeques"/>
+	<classpathentry kind="src" path="A03 - Autocomplete"/>
+	<classpathentry kind="src" path="A04 - 8 Puzzle"/>
+	<classpathentry kind="src" path="A05 - KdTrees"/>
 	<classpathentry exported="true" kind="lib" path="A01 - Percolation/a01/algs4.jar"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">

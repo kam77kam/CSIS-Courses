@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" path="CEGettingStarted"/>
+	<classpathentry kind="src" path="CELinearBinary"/>
+	<classpathentry kind="src" path="CEArrayList-LinkedList"/>
+	<classpathentry kind="src" path="CEStackQueue"/>
+	<classpathentry kind="src" path="CEIterator-Recursion"/>
+	<classpathentry kind="src" path="CEElementarySorts"/>
+	<classpathentry kind="src" path="CEMerge"/>
+	<classpathentry kind="src" path="CEStable"/>
+	<classpathentry kind="src" path="CEQuicksort"/>
+	<classpathentry kind="src" path="CEElemenaryST"/>
+	<classpathentry kind="src" path="CEHeapSort"/>
+	<classpathentry kind="src" path="CEBST"/>
+	<classpathentry kind="src" path="CESymbolTable"/>
+	<classpathentry kind="src" path="CEUndirectedGraphs"/>
+	<classpathentry kind="src" path="CEDFSvsBFS"/>
+	<classpathentry kind="src" path="CEDirectedGraphs"/>
+	<classpathentry kind="src" path="CESymbolGraph"/>
+	<classpathentry kind="src" path="CEInternet"/>
+	<classpathentry kind="src" path="CECityConnections"/>
+	<classpathentry kind="src" path="CEShortestPaths"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="CEGettingStarted"/>
-	<classpathentry kind="src" path="CELinearBinary"/>
-	<classpathentry kind="src" path="CEArrayList-LinkedList"/>
-	<classpathentry kind="src" path="CEStackQueue"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="CEGettingStarted/lib/algs4.jar"/>
 	<classpathentry kind="output" path="bin"/>
