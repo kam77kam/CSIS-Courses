@@ -9,6 +9,7 @@
 	<classpathentry kind="src" path="CELinearBinary"/>
 	<classpathentry kind="src" path="CEDataStructure"/>
 	<classpathentry kind="src" path="CEStackQueue"/>
+	<classpathentry kind="src" path="CEArrayList-LinkedList"/>
 	<classpathentry kind="lib" path="algs4.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
