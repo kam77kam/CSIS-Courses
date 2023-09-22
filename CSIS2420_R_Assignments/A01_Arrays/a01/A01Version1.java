@@ -53,8 +53,15 @@ public class A01Version1 {
 	 * @throws NullPointerException     if the argument passed to the method is null
 	 */
 	public static <T> boolean isPalindrome(T[] array) {
-		
-		return false; // TODO
+		if(array == null)
+			throw new NullPointerException("The array can not be null");
+		if(array.length == 0)
+			throw new IllegalArgumentException("Array can not be empty");
+		for(int i = 0, j = array.length-1; i < j; i++, j--) {
+			if(!array[i].equals(array[j]))
+				return false;
+		}
+		return true;
 	}
 
 	/**
@@ -66,7 +73,17 @@ public class A01Version1 {
 	 *         method returns the first occurrence found.
 	 */
 	public static int findMaximumAbsoluteValue(int[][] arr) {
-		return 0; // TODO
+		if(arr.length == 0)
+			return 0;
+		int max = arr[0][0];
+		for(int i = 0; i < arr.length; i++) {
+			for(int j = 0; j < arr[i].length; j++) {
+				if(Math.abs(arr[i][j]) > max) {
+					max = Math.abs(arr[i][j]);
+				}
+			}
+		}
+		return max;
 	}
 
 	/**
@@ -80,7 +97,18 @@ public class A01Version1 {
 	 * @throws NullPointerException     if the matrix is null.
 	 */
 	public static int diagonalSum(int[][] matrix) {
-		return 0; // TODO
+		if(matrix == null)
+			throw new NullPointerException("The matrix can not be null");
+		if(matrix.length == 0)
+			throw new IllegalArgumentException("The matrix can not be empty");
+		if(matrix.length != matrix[0].length)
+			throw new IllegalArgumentException("The matrix is not square");
+		int sum = 0;
+		int n = matrix.length;
+		for(int i = 0; i < n; i++) {
+			sum += matrix[i][n-i-1];
+		}
+		return sum;
 	}
 
 	public static void main(String args[]) {

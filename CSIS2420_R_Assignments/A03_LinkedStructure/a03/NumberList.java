@@ -70,9 +70,8 @@ public class NumberList {
 	 * @throws NoSuchElementException if the list is empty.
 	 */
 	public double firstElement() {
-		if (isEmpty()) {
+		if (isEmpty())
 			throw new NoSuchElementException("The list is empty");
-		}
 		return head.item;
 	}
 
@@ -83,9 +82,8 @@ public class NumberList {
 	 * @throws IllegalStateException if the list is empty.
 	 */
 	public boolean endsPositive() {
-		if (isEmpty()) {
+		if (isEmpty())
 			throw new IllegalStateException("The list is empty");
-		}
 		return tail.item > 0;
 	}
 
@@ -99,9 +97,8 @@ public class NumberList {
 	 * @throws IllegalStateException if the list is empty.
 	 */
 	public double average() {
-		if (isEmpty()) {
+		if (isEmpty())
 			throw new IllegalStateException("The list is empty.");
-		}
 
 		Node current = head;
 		double sum = 0.0;
@@ -124,9 +121,8 @@ public class NumberList {
 	 * @param item The item value to fill the linked list with.
 	 */
 	public void fill(double item) {
-		if (isEmpty()) {
+		if (isEmpty())
 			return;
-		}
 		Node current = head;
 		while (current != null) {
 
@@ -149,9 +145,8 @@ public class NumberList {
 	 *                                   n].
 	 */
 	public void insert(int index, double item) {
-		if (index < 0 || index > n) {
+		if (index < 0 || index > n)
 			throw new IndexOutOfBoundsException("The index is outside of the valid range[0, n]");
-		}
 
 		Node newNode = new Node();
 		newNode.item = item;
@@ -159,11 +154,11 @@ public class NumberList {
 		if (index == 0) {
 			newNode.next = head;
 			head = newNode;
+			n++;
 		}
 		// Insert at the end
-		else if (index == n) {
+		else if (index == n) 
 			add(newNode.item);
-		}
 		// Insert in the middle
 		else {
 			Node current = head;
@@ -172,9 +167,8 @@ public class NumberList {
 			}
 			newNode.next = current.next;
 			current.next = newNode;
+			n++;
 		}
-
-		n++;
 	}
 
 	/**
@@ -225,7 +219,26 @@ public class NumberList {
 	 * Example: [1.1, 4.4, 2.2, 1.1, 3.3, 2.2, 1.1] -> [1.1, 4.4, 2.2, 3.3]
 	 */
 	public void removeDuplicates() {
-		// TODO
+		if (isEmpty()) {
+			return;
+		}
+		Set<Double> seen = new HashSet<>();
+		Node current = head;
+		Node prev = null;
+
+		while (current != null) {
+			if (seen.contains(current.item)) {
+				prev.next = current.next;
+				if (current == tail) {
+					tail = prev;
+				}
+				n--;
+			} else {
+				seen.add(current.item);
+				prev = current;
+			}
+			current = current.next;
+		}
 	}
 
 	/**
@@ -242,7 +255,22 @@ public class NumberList {
 	 * @throws IllegalArgumentException if the number of positions is not positive.
 	 */
 	public void rotateRight(int positions) {
-		// TODO
+		if (positions <= 0) 
+			throw new IllegalArgumentException("Positive number only");
+		if (isEmpty() || n == 1 || positions % n == 0) 
+			return;
+		Node current = head;
+		int actualPositions = positions % n;
+		for (int i = 1; i < n - actualPositions; i++) {
+			current = current.next;
+		}
+		Node newHead = current.next;
+		current.next = null;
+		if (tail != null)
+			tail.next = head;
+		head = newHead;
+		tail = current;
+		
 	}
 
 	@Override
@@ -253,15 +281,9 @@ public class NumberList {
 		while (current != null) {
 			sb.append(current.item).append(" ");
 			current = current.next;
+
 		}
 
 		return sb.toString();
-	}
-
-	/* * * * * * * * Test Client * * * * * * */
-	public static void main(String[] args) {
-		NumberList list = new NumberList();
-		System.out.println("size: " + list.size());
-
 	}
 }
