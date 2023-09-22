@@ -18,15 +18,15 @@ public class ListA {
 		return n ==0;
 	}
 	
-	public void add(int item) {
+	public void add(int newitem) {
 		if (n == items.length) //list is full
 			throw new IllegalStateException("Can't add to a full list.");
-		items[n++] = item;
+		items[n++] = newitem;
 	}
 	
 	@Override
 	public String toString() {
-		return "ListA [items= " + Arrays.toString(items) + ", n=" + n + "]";
+		return "ListA [items=" + Arrays.toString(items) + ", n=" + n + "]";
 	}
 	
 	// = = = = = = Test Client = = = = = = 

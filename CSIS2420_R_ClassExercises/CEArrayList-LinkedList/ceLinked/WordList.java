@@ -181,13 +181,14 @@ public class WordList implements Iterable<String> {
 		System.out.println("cow is " + element1 + "included in the list");
 		String element2 = list.contains("yak") ? "" : "not ";
 		System.out.println("yak is " + element2 + "included in the list");
-
+		System.out.println();
 		// demo iterator
-		System.out.println("Demo Iterator");
+		System.out.print("list: ");
 		for (String s : list) {
 			System.out.print(s + " ");
 		}
 		System.out.println();
+		System.out.println("size: " + list.size());
 
 	}
 

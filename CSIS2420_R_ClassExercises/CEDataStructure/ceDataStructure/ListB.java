@@ -1,5 +1,7 @@
 package ceDataStructure;
 
+import java.util.NoSuchElementException;
+
 public class ListB {
 	private Node head;
 	private Node tail;
@@ -21,7 +23,7 @@ public class ListB {
 	
 	public int lastItem() {
 		if (isEmpty())
-			throw new IllegalStateException("Can't access last item of empty list.");
+			throw new NoSuchElementException("Can't access last item of empty list.");
 		return tail.item;
 	}
 	
@@ -38,13 +40,23 @@ public class ListB {
 		tail = newNode;
 		n++;
 	}
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		Node current = head;
+		while (current != null) {
+			sb.append(current.item).append(" ");
+			current = current.next;
+		}
+		return sb.toString();
+	}
 	
 	// = = = = = = Test Client = = = = = = 
 		public static void main(String[] args) {
 			System.out.println("List A Test Client");
 			System.out.println("------------------");
 			
-			ListB list = new ListB(5);
+			ListB list = new ListB();
 			System.out.println("size: " + list.size());
 			System.out.println(list);
 			System.out.println("The list "
