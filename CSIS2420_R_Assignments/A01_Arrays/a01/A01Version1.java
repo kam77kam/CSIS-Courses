@@ -112,8 +112,42 @@ public class A01Version1 {
 	}
 
 	public static void main(String args[]) {
-		int[] array = { 10, 20, 30, 40, 50, 50, 70 };
-		System.out.println("Array: " + Arrays.toString(everyOther(array)));
+		System.out.println("Adding int array and removing every other element");
+		System.out.println("10, 20, 30, 40, 50, 50, 70 added...");
+		int[] intArray = { 10, 20, 30, 40, 50, 50, 70 };
+		System.out.println("Array : " + Arrays.toString(everyOther(intArray)));
+		System.out.println();
+		System.out.println("Adding character array");
+		System.out.println("'t', 'a', 't', 't', 'a', 'r' added...");
+		Character[] charArray = { 't', 'a', 't', 't', 'a', 'r'};
+		System.out.println("Testing if characters are in a palindrome: " + isPalindrome(charArray));
+		System.out.println("Array : " + Arrays.toString(charArray));
+		System.out.println();
+		System.out.println("Adding new character array");
+		System.out.println("'t', 'a', 't', 't', 'a', 'r', 'r', 'a', 't', 't', 'a', 't' added...");
+		Character[] charArray2 = { 't', 'a', 't', 't', 'a', 'r', 'r', 'a', 't', 't', 'a', 't'};
+		System.out.println("Testing if characters are in a palindrome: " + isPalindrome(charArray2));
+		System.out.println("Array : " + Arrays.toString(charArray2));
+		System.out.println();
+		System.out.println("Adding 2d int array and finding absolute highest value");
+		int[][] a = {
+		            {3, -5, 2},
+		            {9, -4, 1},
+		            {7, 8, -6}
+		};
+		System.out.println("{3, -5, 2}" + "\r\n" + "{9, -4, 1}" + "\r\n" + "{7, 8, -6}" + " added");
+		System.out.println("Returned highest absolute value: " + findMaximumAbsoluteValue(a));
+		System.out.println();
+		System.out.println("Adding new 2d int array matrix and \r\nreturning the sum of the elements in both diagonals of the matrix");
+		int[][] matrix = {
+	            {1, 2, 0},
+	            {4, 0, 6},
+	            {0, 9, 8}
+	    };
+		System.out.println("{1, 2, 0}" + "\r\n" + "{4, 0, 6}" + "\r\n" + "{0, 9, 8}" + " added");
+		System.out.println("Expecting '0' as answer: " + diagonalSum(matrix));
+
+		
 
 	}
 
