@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="CSIS1400_Assignments/A01 - Print"/>
+	<classpathentry kind="src" path="CSIS1400_Assignments/A04 - Automobile"/>
+	<classpathentry kind="src" path="CSIS1400_Assignments/A04 - Jet Country"/>
+	<classpathentry kind="src" path="CSIS1400_Assignments/A04 - Roman Numerals"/>
+	<classpathentry kind="src" path="CSIS1400_Assignments/A05 - Wage"/>
+	<classpathentry kind="src" path="CSIS1400_Assignments/A08 - Patterns"/>
+	<classpathentry kind="src" path="CSIS1400_Assignments/A09 - Dice"/>
+	<classpathentry kind="src" path="CSIS1400_Demos/Demo (Old Demos)"/>
+	<classpathentry kind="src" path="CSIS1400_Demos/DemoArray"/>
+	<classpathentry kind="src" path="CSIS1400_Demos/DemoBall"/>
+	<classpathentry kind="src" path="CSIS1400_Demos/DemoClassArrays"/>
+	<classpathentry kind="src" path="CSIS1400_Demos/DemoGuessTheNumber"/>
+	<classpathentry kind="src" path="CSIS1400_Demos/DemoPrintPatterns"/>
+	<classpathentry kind="src" path="CSIS1400_Final/Final"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabAddress"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabArray"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabBall2"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabCalculator"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabClassArrays"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabCountry"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabDice"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabEmployee"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabEratosthenes"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabHoppityHop"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabMarbles"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabMartians"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabMinMax"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabPartyGuest"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabPattern3"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabRandom"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabTimeTable"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabVariables"/>
+	<classpathentry kind="src" path="CSIS1400_Labs/LabWhile"/>
+	<classpathentry kind="src" path="CSIS1400_Midterm/Midterm1"/>
+	<classpathentry excluding="mid/" kind="src" path="CSIS1400_Midterm/Midterm2"/>
+	<classpathentry kind="src" path="CSIS1400_Midterm/Midterm2/mid"/>
+	<classpathentry kind="src" path="CSIS1400_Practice"/>
+	<classpathentry kind="src" path="CSIS1410_Assignments/A01 - ItemList"/>
+	<classpathentry kind="src" path="CSIS1410_Assignments/A02 - CodingBat"/>
+	<classpathentry kind="src" path="CSIS1410_Assignments/A03 - Gps with Unit Tests"/>
+	<classpathentry kind="src" path="CSIS1410_Assignments/A04 - Inheritance"/>
+	<classpathentry kind="src" path="CSIS1410_Assignments/A05 - Interface"/>
+	<classpathentry kind="src" path="CSIS1410_Assignments/A06 - Redcount"/>
+	<classpathentry kind="src" path="CSIS1410_Assignments/A07 - Changing Images"/>
+	<classpathentry kind="src" path="CSIS1410_Assignments/A09 - List Vs Set"/>
+	<classpathentry kind="src" path="CSIS1410_Final"/>
+	<classpathentry kind="src" path="CSIS1410_GroupProject"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabBalloon"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabBuilding"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabConcert"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabDice"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabEnum"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabException"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabFile"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabGenerics"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabGui"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabGuiLayoutManager"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabInterface"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabItinerary"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabjUnit"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabKeyValuePair"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabKeyValuePair2"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabPolymorphism"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabPrinter"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabPrintTimeTables"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabQuadotor"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabSerialization"/>
+	<classpathentry kind="src" path="CSIS1410_Labs/LabWrapperClass"/>
+	<classpathentry kind="src" path="CSIS1410_ModuleQuiz/Module01Quiz"/>
+	<classpathentry kind="src" path="CSIS1410_ModuleQuiz/Module02Quiz"/>
+	<classpathentry kind="src" path="CSIS1410_ModuleQuiz/Module03Quiz"/>
+	<classpathentry kind="src" path="CSIS1410_ModuleQuiz/Module04Quiz"/>
+	<classpathentry kind="src" path="CSIS1410_ModuleQuiz/Module05Quiz"/>
+	<classpathentry kind="src" path="CSIS1410_Practice"/>
+	<classpathentry kind="src" path="CSIS2420_Assignments/A01 - Percolation"/>
+	<classpathentry kind="src" path="CSIS2420_Assignments/A02 - RandomizedQueuesAndDeques"/>
+	<classpathentry kind="src" path="CSIS2420_ClassExercises/CEArrayList-LinkedList"/>
+	<classpathentry kind="src" path="CSIS2420_ClassExercises/CEBST"/>
+	<classpathentry kind="src" path="CSIS2420_ClassExercises/CEGettingStarted"/>
+	<classpathentry kind="src" path="CSIS2420_ClassExercises/CEHeapSort"/>
+	<classpathentry kind="src" path="CSIS2420_ClassExercises/CELinearBinary"/>
+	<classpathentry kind="src" path="CSIS2420_ClassExercises/CEStackQueue"/>
+	<classpathentry kind="src" path="CSIS2420_R_Assignments/A01_Arrays"/>
+	<classpathentry kind="src" path="CSIS2420_R_Assignments/A02_Circular Queue"/>
+	<classpathentry kind="src" path="CSIS2420_R_Assignments/A03_LinkedStructure"/>
+	<classpathentry kind="src" path="CSIS2420_R_ClassExercises/CEArrayList-LinkedList"/>
+	<classpathentry kind="src" path="CSIS2420_R_ClassExercises/CEDataStructure"/>
+	<classpathentry kind="src" path="CSIS2420_R_ClassExercises/CEGettingStarted"/>
+	<classpathentry kind="src" path="CSIS2420_R_ClassExercises/CELinearBinary"/>
+	<classpathentry kind="src" path="CSIS2420_R_ClassExercises/CERecursion"/>
+	<classpathentry kind="src" path="CSIS2420_R_ClassExercises/CEStackQueue"/>
+	<classpathentry kind="lib" path="CSIS1410_Assignments/bin/A01.jar"/>
+	<classpathentry kind="lib" path="CSIS1410_Assignments/bin/A06 - Redcount by Kamdon Bird.jar"/>
+	<classpathentry kind="lib" path="CSIS1410_Assignments/bin/A07 - Kamdon Bird.jar"/>
+	<classpathentry kind="lib" path="CSIS1410_Assignments/bin/A09 - Kamdon Bird.jar"/>
+	<classpathentry kind="lib" path="CSIS1410_Assignments/bin/Interface(KamdonBird).jar"/>
+	<classpathentry kind="lib" path="CSIS1410_ModuleQuiz/bin/jgoodies-forms-1.8.0.jar"/>
+	<classpathentry kind="lib" path="CSIS1410_ModuleQuiz/bin/jgoodies-forms-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="CSIS1410_ModuleQuiz/bin/Module01Quiz - Kamdon Bird.jar"/>
+	<classpathentry kind="lib" path="CSIS1410_ModuleQuiz/bin/Module02Quiz.jar"/>
+	<classpathentry kind="lib" path="CSIS1410_ModuleQuiz/bin/Module 03 Quiz Kamdon Bird.jar"/>
+	<classpathentry kind="lib" path="CSIS1410_ModuleQuiz/bin/Module 03 Quiz SRC.jar"/>
+	<classpathentry kind="lib" path="CSIS1410_ModuleQuiz/bin/Module 04 Quiz SRC.jar"/>
+	<classpathentry kind="lib" path="CSIS1410_ModuleQuiz/bin/Module 05 Quiz.jar"/>
+	<classpathentry kind="lib" path="CSIS2420_Assignments/bin/a01/algs4.jar"/>
+	<classpathentry kind="lib" path="CSIS2420_ClassExercises/bin/lib/algs4.jar"/>
+	<classpathentry kind="lib" path="CSIS2420_R_ClassExercises/algs4.jar"/>
+	<classpathentry kind="output" path="CSIS1400_Assignments/bin"/>
+</classpath>

@@ -3,6 +3,7 @@
 	<classpathentry kind="src" path="A01_Arrays"/>
 	<classpathentry kind="src" path="A02_Circular Queue"/>
 	<classpathentry kind="src" path="A03_LinkedStructure"/>
+	<classpathentry kind="src" path="A04_Recursion"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-20">
 		<attributes>
 			<attribute name="module" value="true"/>
