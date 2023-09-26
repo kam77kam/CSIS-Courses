@@ -31,15 +31,15 @@ public class ListB {
 		Node newNode = new Node();
 		newNode.item = item;
 		
-		if (isEmpty()) {
+		if (isEmpty()) 
 			head = newNode;
-		}
 		else 
 			tail.next = newNode;
 		
 		tail = newNode;
 		n++;
 	}
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

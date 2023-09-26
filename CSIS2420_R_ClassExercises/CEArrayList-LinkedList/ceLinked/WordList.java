@@ -32,13 +32,11 @@ public class WordList implements Iterable<String> {
 		Node newNode = new Node();
 		newNode.item = newItem;
 
-		if (isEmpty()) {
+		if (isEmpty()) 
 			head = newNode;
-			tail = newNode;
-		} else {
+		else 
 			tail.next = newNode;
-			tail = newNode;
-		}
+		tail = newNode;
 		n++;
 	}
 
