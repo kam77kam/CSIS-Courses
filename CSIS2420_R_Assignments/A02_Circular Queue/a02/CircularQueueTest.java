@@ -107,7 +107,7 @@ public class CircularQueueTest {
 	@Test 
 	public void toString_oneELement() {
 		q1.enqueue(10);
-		String s = q1.toString();
+		q1.toString();
 		assertEquals("10 ", q1.toString());
 	}
 	
@@ -180,7 +180,7 @@ public class CircularQueueTest {
 	
 	@Test (timeout = 1000)
 	public void iterator_emptyQueue() {
-		for(Integer el : q1) {
+		for(@SuppressWarnings("unused") Integer el : q1) {
 			fail("No element should be found in an empty queue.");
 		}
 	}

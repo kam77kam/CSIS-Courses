@@ -75,7 +75,6 @@ public class CircularQueue<Item> implements Iterable<Item> {
 		return (Item) queue[front];
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public String toString() {
 		StringBuilder result = new StringBuilder();
@@ -115,7 +114,7 @@ public class CircularQueue<Item> implements Iterable<Item> {
 		// Invalid Queue try case test
 		System.out.println("= = Creating Invalid Queue...");
 		try {
-			CircularQueue<Integer> invalidQueue = new CircularQueue<Integer>(-1);
+			new CircularQueue<Integer>(-1);
 		} catch (Exception e) {
 			System.out.println("Something went wrong. " + e.getMessage());
 		}

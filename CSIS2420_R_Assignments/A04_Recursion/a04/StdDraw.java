@@ -1431,7 +1431,8 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         // try to read from URL
         if (icon.getImageLoadStatus() != MediaTracker.COMPLETE) {
             try {
-                URL url = new URL(filename);
+                @SuppressWarnings("deprecation")
+				URL url = new URL(filename);
                 icon = new ImageIcon(url);
             }
             catch (MalformedURLException e) {
@@ -2080,7 +2081,8 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     *  For improved resolution on Mac Retina displays.
     ***************************************************************************/
 
-    private static class RetinaImageIcon extends ImageIcon {
+    @SuppressWarnings("serial")
+	private static class RetinaImageIcon extends ImageIcon {
 
         public RetinaImageIcon(Image image) {
             super(image);
