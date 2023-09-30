@@ -2119,7 +2119,10 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        StdDraw.square(0.2, 0.8, 0.1);
+    	//			Original StdDrawing
+    	//========================================//
+    	/*
+    	StdDraw.square(0.2, 0.8, 0.1);
         StdDraw.filledSquare(0.8, 0.8, 0.2);
         StdDraw.circle(0.8, 0.2, 0.2);
 
@@ -2139,6 +2142,76 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         StdDraw.text(0.2, 0.5, "black text");
         StdDraw.setPenColor(StdDraw.WHITE);
         StdDraw.text(0.8, 0.8, "white text");
+    	*/
+    	
+    	//    Familiarizing with StdDraw (Step 1 of Challenge B)
+    	//============================================================//
+    	/*
+    	//Open Square
+    	StdDraw.setPenColor(StdDraw.BOOK_RED); 
+    	StdDraw.setPenRadius(0.02);
+        StdDraw.square(0.2, 0.8, 0.1);
+        //Filled Square
+        StdDraw.setPenRadius(); 
+        StdDraw.setPenColor(StdDraw.ORANGE);
+        StdDraw.filledSquare(0.8, 0.8, 0.2);
+        //Open Circle
+        StdDraw.setPenColor(); 
+        StdDraw.circle(0.8, 0.2, 0.2); 
+        //Filled Diamond
+		StdDraw.setPenRadius(); 
+		StdDraw.setPenColor(StdDraw.BOOK_BLUE);
+		double[] x = { 0.1, 0.2, 0.3, 0.2 };
+		double[] y = { 0.2, 0.3, 0.2, 0.1 };
+		StdDraw.filledPolygon(x, y);
+		//Arc inside Open Circle
+        StdDraw.setPenColor(StdDraw.BOOK_RED);
+        StdDraw.setPenRadius(0.02);
+        StdDraw.arc(0.8, 0.2, 0.1, 45, 200); 
+        //Text in between Open Square and Filled Diamond
+        StdDraw.setPenColor(StdDraw.BLACK);
+        StdDraw.text(0.2, 0.5, "black text");
+        //Text inside Filled Square
+        StdDraw.setPenColor(StdDraw.BOOK_BLUE);
+        StdDraw.text(0.8, 0.8, "white text");
+    	 */
+        
+    	//        Completed StdDrawing for Challenge B
+    	//=================================================//
+        //Open Square
+    	StdDraw.setPenColor(StdDraw.BOOK_RED); 
+    	StdDraw.setPenRadius(0.02);
+        StdDraw.square(0.2, 0.8, 0.1);
+        //Filled Square
+        StdDraw.setPenRadius(); 
+        StdDraw.setPenColor(StdDraw.ORANGE);
+        StdDraw.filledSquare(0.8, 0.8, 0.2);
+        //Open Circle
+        StdDraw.setPenColor(); 
+        StdDraw.circle(0.8, 0.2, 0.2); 
+        //Filled Diamond
+		StdDraw.setPenRadius(); 
+		StdDraw.setPenColor(StdDraw.BOOK_BLUE);
+		double[] x = { 0.1, 0.2, 0.3, 0.2 };
+		double[] y = { 0.8, 0.9, 0.8, 0.7 };
+		StdDraw.filledPolygon(x, y);
+		//Arc inside Circle
+        StdDraw.setPenColor(StdDraw.BOOK_RED);
+        StdDraw.setPenRadius(0.02);
+        StdDraw.arc(0.8, 0.2, 0.1, 45, 200); 
+        //Text in between Open Square and Diamond
+        StdDraw.setPenColor(StdDraw.BLACK);
+        StdDraw.text(0.2, 0.5, "DONE");
+        //Text inside Filled Square
+        StdDraw.setPenColor(StdDraw.BOOK_BLUE);
+        StdDraw.text(0.8, 0.8, "white text");
+        //Added Open Square over Filled Square
+        StdDraw.setPenRadius();
+        StdDraw.square(0.8, 0.8, 0.15);
+        //Added Small Gray Disc Inside Open Circle
+        StdDraw.setPenColor(StdDraw.GRAY);
+        StdDraw.filledCircle(0.8, 0.2, 0.03);
+        
     }
 
 }
