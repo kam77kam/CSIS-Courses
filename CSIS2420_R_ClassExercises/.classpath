@@ -12,6 +12,7 @@
 	<classpathentry kind="src" path="CEArrayList-LinkedList"/>
 	<classpathentry kind="src" path="CERecursion"/>
 	<classpathentry kind="src" path="CEMerge"/>
+	<classpathentry kind="src" path="CEStable"/>
 	<classpathentry exported="true" kind="lib" path="algs4.jar"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
