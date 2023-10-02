@@ -32,18 +32,11 @@ public class MyFractal {
 
 //------------------TEST CLIENT-------------------//
 	public static void main(String[] args) {
-		int maxN = 6;
 
-		for (int n = 1; n <= maxN; n++) {
-
-			// Set the color for the fractal
-			StdDraw.setPenColor(StdDraw.BOOK_LIGHT_BLUE);
-
-			// Draw the fractal
+		for (int n = 1; n <= 6; n++) {
+			// Drawing MyFractal
+			StdDraw.setPenColor(StdDraw.BOOK_BLUE);
 			drawFractal(n, 0.5, 0.5, 0.5);
-
-			// Show the fractal for 3 seconds
-			StdDraw.show();
 			StdDraw.pause(3000);
 		}
 	}
