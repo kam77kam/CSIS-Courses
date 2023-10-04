@@ -4,6 +4,7 @@
 	<classpathentry kind="src" path="A02_Circular Queue"/>
 	<classpathentry kind="src" path="A03_LinkedStructure"/>
 	<classpathentry kind="src" path="A04_Recursion"/>
+	<classpathentry kind="src" path="A05_SortingMethods"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-20">
 		<attributes>
 			<attribute name="module" value="true"/>
@@ -11,5 +12,6 @@
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="algs4.jar"/>
+	<classpathentry kind="lib" path="A05_SortingMethods/Mystery.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
