@@ -25,9 +25,12 @@ public class MyFractal {
 		StdDraw.filledRectangle(x, y, size / 2, size / 2);
 
 		// Recursively drawing smaller rectangles
-		drawFractal(n - 1, x - size / 4, y + size / 4, size / 2);
-		drawFractal(n - 1, x + size / 4, y + size / 4, size / 2);
-		drawFractal(n - 1, x, y - size / 2, size / 2);
+	    drawFractal(n - 1, x - size / 2, y + size, size / 2);
+	    drawFractal(n - 1, x + size / 2, y + size, size / 2);
+	    drawFractal(n - 1, x - size, y, size / 2);
+	    drawFractal(n - 1, x + size, y, size / 2);
+	    drawFractal(n - 1, x - size / 2, y - size, size / 2);
+	    drawFractal(n - 1, x + size / 2, y - size, size / 2);
 	}
 
 //------------------TEST CLIENT-------------------//
@@ -36,7 +39,7 @@ public class MyFractal {
 		for (int n = 1; n <= 6; n++) {
 			// Drawing MyFractal
 			StdDraw.setPenColor(StdDraw.BOOK_BLUE);
-			drawFractal(n, 0.5, 0.5, 0.5);
+			drawFractal(n, 0.5, 0.5, 0.25);
 			StdDraw.pause(3000);
 		}
 	}
