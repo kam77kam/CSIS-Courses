@@ -4,7 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import edu.princeton.cs.algs4.Knuth;
+import edu.princeton.cs.algs4.Selection;
+import edu.princeton.cs.algs4.Insertion;
 
 /**
  * Demonstrates how stable sorting algorithms work.
@@ -39,15 +43,57 @@ public class StableApp {
 	}
 
 	public static void main(String[] args) {
+		/*
+		 * Printing CSV file
+		 */
 		System.out.println("Songs from CSV file");
 		System.out.println("-------------------");
 		Song[] songs = getSongs("ceStable/Resources/JazzSongs.csv");
 		for (Song s : songs) {
 			System.out.println(s);
 		}
+		/*
+		 * Printing a Non Stable Sorting (Selection.sort) and then
+		 * shuffling the songs, review song 8 (line 8) in the output
+		 */
+		System.out.println("*** demo NOT STABLE sorting ***");
 		System.out.println();
-		//Not Stable Sorting
+		System.out.println("Sorted by Artist - Not Stable");
+		System.out.println("-----------------------------");
+		System.out.println("look at song Manteca (line 8)");
+		System.out.println("------------------------");
+		Selection.sort(songs, Song.BY_ARTIST);
+		for (Song s : songs) {
+			System.out.println(s);
+		}
 		System.out.println();
+		System.out.println("===========");
+		System.out.println("Reshuffling");
+		System.out.println("===========");
+		System.out.println();
+		Knuth.shuffle(songs);
+		/*
+		 * Printing a Stable Sorting (Arrays.sort) and then
+		 * shuffling the songs
+		 */
+		System.out.println("*** demo STABLE sorting ***");
+		System.out.println();
+		System.out.println("Sorted by Title - Stable");
+		System.out.println("------------------------");
+		Arrays.sort(songs);
+		for (Song s : songs) {
+			System.out.println(s);
+		}
+		/*
+		 * Printing a Stable Sorting (Insertion.sort)
+		 */
+		System.out.println("Sorted by Artist - Stable");
+		System.out.println("-------------------------");
+		Insertion.sort(songs, Song.BY_ARTIST);
+		for (Song s : songs) {
+			System.out.println(s);
+		}
+		
 	}
 
 	
