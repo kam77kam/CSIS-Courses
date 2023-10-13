@@ -13,16 +13,24 @@ public class SortComparison {
 
 	private static int[] getRandomNumberArray(int arraySize, int numberOfDigits) {
 		int[] array = new int[arraySize];
-		for (int i = 0; i < arraySize; i++) {
-			array[i] = StdRandom.uniform(1_000_000, 10_000_000);
+		int lowerBound = 1;
+		int upperBound = 10;
+		for(int i = 1; i < numberOfDigits; i++) {
+			lowerBound = lowerBound * 10;
+			upperBound = upperBound * 10;
 		}
-
+		for (int i = 0; i < arraySize; i++) {
+			array[i] = StdRandom.uniform(lowerBound, upperBound);
+		}
 		return array;
 	}
 
 //=================TEST CLIENT=================
 	public static void main(String[] args) {
 		int[] array = getRandomNumberArray(10, 7);
+//		for(int a: array) {
+//			System.out.println(a);
+//		}
 		System.out.println(Arrays.toString(array));
 	}
 
