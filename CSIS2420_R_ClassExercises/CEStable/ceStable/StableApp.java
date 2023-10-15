@@ -75,6 +75,7 @@ public class StableApp {
 		for (Song s : songs) {
 			System.out.println(s);
 		}
+		System.out.println();
 		/*
 		 * Printing a Non Stable Sorting (Selection.sort) and then shuffling the songs,
 		 * review song 8 (line 8) in the output
