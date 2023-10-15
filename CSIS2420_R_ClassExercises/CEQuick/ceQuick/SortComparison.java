@@ -12,6 +12,8 @@ import edu.princeton.cs.algs4.StdRandom;
 public class SortComparison {
 
 	private static int[] getRandomNumberArray(int arraySize, int numberOfDigits) {
+		if(numberOfDigits < 0 || 10 < numberOfDigits) 
+			throw new IllegalArgumentException();
 		int[] array = new int[arraySize];
 		int lowerBound = 1;
 		int upperBound = 10;
