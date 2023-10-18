@@ -15,6 +15,7 @@
 	<classpathentry kind="src" path="CEStable"/>
 	<classpathentry kind="src" path="CEQuick"/>
 	<classpathentry kind="src" path="CEHeapSort"/>
+	<classpathentry kind="src" path="CEPet-SymbolTable"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="algs4.jar"/>
 	<classpathentry kind="output" path="bin"/>
