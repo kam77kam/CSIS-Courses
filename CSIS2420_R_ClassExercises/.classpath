@@ -14,7 +14,8 @@
 	<classpathentry kind="src" path="CEMerge"/>
 	<classpathentry kind="src" path="CEStable"/>
 	<classpathentry kind="src" path="CEQuick"/>
-	<classpathentry exported="true" kind="lib" path="algs4.jar"/>
+	<classpathentry kind="src" path="CEHeapSort"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="algs4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
