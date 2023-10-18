@@ -46,7 +46,7 @@ public class SortComparison {
 		}
 
 		for (int i = 0; i < arraySize; i++) {
-			array[i] = StdRandom.uniform(lowerBound, upperBound);
+			array[i] = StdRandom.uniformInt(lowerBound, upperBound);
 		}
 
 		return array;
