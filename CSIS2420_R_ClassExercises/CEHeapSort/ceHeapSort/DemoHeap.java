@@ -11,7 +11,7 @@ import edu.princeton.cs.algs4.StdOut;
  * 2. Repeatedly extract elements from the heap, printing them one at a time, to obtain 
  *    the desired sorted order.
  *
- * @author CSIS + .........
+ * @author CSIS + Kamdon Bird
  * s
 */
 public class DemoHeap {
