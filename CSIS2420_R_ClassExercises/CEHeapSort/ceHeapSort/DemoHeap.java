@@ -1,7 +1,7 @@
 package ceHeapSort;
 
 import edu.princeton.cs.algs4.StdOut;
-
+import edu.princeton.cs.algs4.MaxPQ;
 /**
  * The DemoHeap class showcases the underlying idea of heapsort. It does not implement 
  * the full heapsort algorithm but provides insight into its fundamental concepts. 
@@ -16,16 +16,21 @@ import edu.princeton.cs.algs4.StdOut;
 */
 public class DemoHeap {
 
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
+//      Create an array of 25 random Mail objects and print it.
 		StdOut.println("Random Mail:");
 		StdOut.println("------------");
-		// TODO:
-		// Create an array of 25 random Mail objects and print it.
-
+		Mail[] mailArray = new Mail[25];
+		for(int i = 0; i < 25; i++) {
+			Mail m = new Mail();
+			mailArray[i] = m;
+			StdOut.println(m.toString());
+		}
+		StdOut.println();
 		
 		StdOut.println("Ordered Mail:");
 		StdOut.println("-------------");
-		// TODO: 
+		
 		// List the mail from most urgent to least urgent in linear time.
 		// Steps:
 		// a) Determine whether you need a min heap or a max heap

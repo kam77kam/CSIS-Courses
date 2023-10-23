@@ -44,7 +44,7 @@ public class Mail implements Comparable<Mail> {
 	static String randomMailCode() {
 		StringBuilder randomMailString = new StringBuilder();
 		for (int i = 0; i < 5; i++) {
-			randomMailString.append((char) ('A' + StdRandom.uniformInt(0, 27)));
+			randomMailString.append((char) ('A' + StdRandom.uniformInt(0, 26)));
 		}
 		return randomMailString.toString();
 
@@ -81,26 +81,22 @@ public class Mail implements Comparable<Mail> {
 		if (other.type == null ) {
 			throw new NullPointerException("Cant compare a null object");
 		} else if (other.type == this.type) {
-			return other.mailCode.compareTo(this.mailCode);
-		} else if (other.type == DeliveryType.ONE_DAY) {
+			return this.mailCode.compareTo(other.mailCode);
+		} else if (this.type == DeliveryType.ONE_DAY) {
 			return 1;
-		} else if (other.type == DeliveryType.TWO_DAY) {
-			if (this.type == DeliveryType.ONE_DAY) {
+		} else if (this.type == DeliveryType.TWO_DAY) {
+			if (other.type == DeliveryType.ONE_DAY) {
 				return -1;
-			} else
-				return 1;
-		} else if (other.type == DeliveryType.PRIORITY) {
-			if (this.type == DeliveryType.ONE_DAY || this.type == DeliveryType.ONE_DAY) {
+			} else return 1;
+		} else if (this.type == DeliveryType.PRIORITY) {
+			if (other.type == DeliveryType.TWO_DAY || other.type == DeliveryType.ONE_DAY) {
 				return -1;
-			} else
+			} else return 1;
+		} else if (this.type == DeliveryType.AIR) {
+			if (other.type != DeliveryType.GROUND) {
 				return 1;
-		} else if (other.type == DeliveryType.AIR) {
-			if (this.type != DeliveryType.GROUND) {
-				return 1;
-			} else
-				return -1;
-		} else
-			return -1;
+			} else return -1;
+		} else return -1;
 	}
 
 }
