@@ -1,7 +1,7 @@
 package a06;
 
 /**
- * @author Kamdon Bird
+ * @author Kamdon Bird, Haiyang Liu
  */
 public class Movie {
 	private Integer rank;
