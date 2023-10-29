@@ -1,13 +1,4 @@
 Rank,Title,Director,Runtime (Minutes),Rating
-1,Guardians of the Galaxy,James Gunn,121,8.1
-2,Prometheus,Ridley Scott,124,7
-3,Split,M. Night Shyamalan,117,7.3
-4,Sing,Christophe Lourdelet,108,7.2
-5,Suicide Squad,David Ayer,123,6.2
-6,The Great Wall,Yimou Zhang,103,6.1
-7,La La Land,Damien Chazelle,128,8.3
-8,Mindhorn,Sean Foley,89,6.4
-9,The Lost City of Z,James Gray,141,7.1
 10,Passengers,Morten Tyldum,116,7
 11,Fantastic Beasts and Where to Find Them,David Yates,133,7.5
 12,Hidden Figures,Theodore Melfi,127,7.8
@@ -19,3 +10,12 @@ Rank,Title,Director,Runtime (Minutes),Rating
 18,Jason Bourne,Paul Greengrass,123,6.7
 19,Lion,Garth Davis,118,8.1
 20,Arrival,Denis Villeneuve,116,8
+1,Guardians of the Galaxy,James Gunn,121,8.1
+2,Prometheus,Ridley Scott,124,7
+3,Split,M. Night Shyamalan,117,7.3
+4,Sing,Christophe Lourdelet,108,7.2
+5,Suicide Squad,David Ayer,123,6.2
+6,The Great Wall,Yimou Zhang,103,6.1
+7,La La Land,Damien Chazelle,128,8.3
+8,Mindhorn,Sean Foley,89,6.4
+9,The Lost City of Z,James Gray,141,7.1
