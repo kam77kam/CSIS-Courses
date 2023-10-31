@@ -5,7 +5,7 @@ import edu.princeton.cs.algs4.StdRandom;
 /**
  * Represents a mail item with a specific delivery type and mail code. The class
  * implements the Comparable interface to allow comparison based on the delivery
- * type and mail code. Re
+ * type and mail code.
  * 
  * @author CSIS + Kamdon Bird
  */
