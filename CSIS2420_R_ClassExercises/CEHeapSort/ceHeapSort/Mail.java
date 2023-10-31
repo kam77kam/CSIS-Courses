@@ -1,5 +1,7 @@
 package ceHeapSort;
 
+import java.util.Comparator;
+
 import edu.princeton.cs.algs4.StdRandom;
 
 /**
@@ -76,27 +78,36 @@ public class Mail implements Comparable<Mail> {
 	 *
 	 * {@inheritDoc}
 	 */
-	@Override
-	public int compareTo(Mail other) {
-		if (other.type == null ) {
-			throw new NullPointerException("Cant compare a null object");
-		} else if (other.type == this.type) {
-			return this.mailCode.compareTo(other.mailCode);
-		} else if (this.type == DeliveryType.ONE_DAY) {
-			return 1;
-		} else if (this.type == DeliveryType.TWO_DAY) {
-			if (other.type == DeliveryType.ONE_DAY) {
-				return -1;
-			} else return 1;
-		} else if (this.type == DeliveryType.PRIORITY) {
-			if (other.type == DeliveryType.TWO_DAY || other.type == DeliveryType.ONE_DAY) {
-				return -1;
-			} else return 1;
-		} else if (this.type == DeliveryType.AIR) {
-			if (other.type != DeliveryType.GROUND) {
-				return 1;
-			} else return -1;
-		} else return -1;
-	}
+    @Override
+    public int compareTo(Mail other) {
+        Comparator<DeliveryType> deliveryTypeComparator = Comparator
+                .comparingInt(type -> type.ordinal()); // Higher ordinal is higher priority
+        int results = deliveryTypeComparator.compare(this.type, other.type);
+        if(results == 0) {
+        	return this.mailCode.compareTo(other.mailCode);
+        }else return results;
+    }
 
+//	@Override (did not work)
+//	public int compareTo(Mail other) {
+//		if (other.type == null ) {
+//			throw new NullPointerException("Cant compare a null object");
+//		} else if (this.type == other.type) {
+//			return this.mailCode.compareTo(other.mailCode);
+//		} else if (this.type == DeliveryType.ONE_DAY) {
+//			return 1;
+//		} else if (this.type == DeliveryType.TWO_DAY) {
+//			if (other.type == DeliveryType.ONE_DAY) {
+//				return -1;
+//			} else return 1;
+//		} else if (this.type == DeliveryType.PRIORITY) {
+//			if (other.type == DeliveryType.TWO_DAY || other.type == DeliveryType.ONE_DAY) {
+//				return -1;
+//			} else return 1;
+//		} else if (this.type == DeliveryType.AIR) {
+//			if (other.type != DeliveryType.GROUND) {
+//				return 1;
+//			} else return -1;
+//		} else return -1;
+//	}
 }

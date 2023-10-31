@@ -4,15 +4,13 @@ import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.MaxPQ;
 
 /**
- * The DemoHeap class showcases the underlying idea of heapsort. It does not
- * implement the full heapsort algorithm but provides insight into its
- * fundamental concepts.
+ * The main method demonstrates the use of a Max Priority Queue to order a
+ * collection of Mail objects. It creates an array of 25 random Mail objects,
+ * prints them, and then orders the mail from most urgent to least urgent using
+ * a Max Priority Queue. The ordered mail items are dequeued and printed in
+ * priority order.
  * 
- * The steps demonstrated in this class: 1. Efficiently convert the array into a
- * binary heap by heapifying the array 2. Repeatedly extract elements from the
- * heap, printing them one at a time, to obtain the desired sorted order.
- *
- * @author CSIS + Kamdon Bird
+ * @author Kamdon Bird
  */
 public class DemoHeap {
 
@@ -31,12 +29,11 @@ public class DemoHeap {
 		StdOut.println("Ordered Mail:");
 		StdOut.println("-------------");
 		// Create a max priority queue and add mail items to it
-        MaxPQ<Mail> maxPQ = new MaxPQ<>(mailArray);
-
-        // Dequeue and print the mail items in priority order
-        while (!maxPQ.isEmpty()) {
-            Mail m = maxPQ.delMax();
-            StdOut.println(m.toString());
-        }
+		MaxPQ<Mail> maxPQ = new MaxPQ<>(mailArray);
+		// Dequeue and print the mail items in priority order
+		while (!maxPQ.isEmpty()) {
+			Mail m = maxPQ.delMax();
+			StdOut.println(m.toString());
+		}
 	}
 }
