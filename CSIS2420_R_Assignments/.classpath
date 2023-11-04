@@ -6,6 +6,7 @@
 	<classpathentry kind="src" path="A04_Recursion"/>
 	<classpathentry kind="src" path="A05_SortingMethods"/>
 	<classpathentry kind="src" path="A06_SymbolTable"/>
+	<classpathentry kind="src" path="A07_Magic"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-20">
 		<attributes>
 			<attribute name="module" value="true"/>
