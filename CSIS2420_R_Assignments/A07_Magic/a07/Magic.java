@@ -3,11 +3,9 @@ package a07;
 import edu.princeton.cs.algs4.SeparateChainingHashST;
 
 /**
- * This class contains methods for generating magic squares and matching 
- * them with their sums.
+ * This class contains methods for generating magic squares and matching them with their sums.
  * 
- * @author ..... // TODO list all people and resources who contributed code
- *               //      include chat gpt and websites if you used their code
+ * @author Kamdon Bird, Haiyang Liu, ChatGPT
  *
  */
 public class Magic {
@@ -47,6 +45,16 @@ public class Magic {
         }
     }
 
+	/**
+	 * Generates an odd-ordered magic square using the Siamese method. This method
+	 * is used when the order of the square is an odd number. It starts from the central
+	 * cell of the top row and places the numbers from 1 to order^2 by moving up and
+	 * right on each step, wrapping around the borders and checking for already filled
+	 * cells.
+	 *
+	 * @param order The order of the magic square (must be an odd number).
+	 * @return A two-dimensional array representing an odd-ordered magic square.
+	 */
     private static int[][] generateOddMagicSquare(int order) {
     	// Initialize the magic square
         int[][] magicSquare = new int[order][order];
@@ -81,6 +89,15 @@ public class Magic {
 		return magicSquare;
     }
 
+    /**
+     * Generates a doubly even-ordered magic square (order is a multiple of 4). This method
+     * first fills the square with numbers from 1 to order^2 in order then changes specific
+     * cells based on a defined pattern to ensure that each row, column, and diagonal
+     * sum up to the same number.
+     *
+     * @param order The order of the magic square (must be a multiple of 4).
+     * @return A two-dimensional array representing a doubly even-ordered magic square.
+     */
     private static int[][] generateDoublyEvenMagicSquare(int order) {
         // Your new implementation for doubly even order magic squares.
         int[][] magicSquare = new int[order][order];
@@ -124,6 +141,16 @@ public class Magic {
     }
     
 
+    /**
+     * Generates a singly even-ordered magic square (order is even but not a multiple of 4).
+     * This method creates four sub-squares, each being an odd-ordered magic square, and
+     * then combines them with added values to form the final singly even-ordered magic square.
+     * Adjustments are made to ensure that the final square has the characteristic sums for
+     * rows, columns, and diagonals.
+     *
+     * @param order The order of the magic square (must be an even number but not a multiple of 4).
+     * @return A two-dimensional array representing a singly even-ordered magic square.
+     */
     private static int[][] generateSinglyEvenMagicSquare(int order) {
       
     	
@@ -189,7 +216,14 @@ public class Magic {
         return symbolTable;
     }
 
-	// New method to test square and mapOrderToSquare methods
+    /**
+     * Tests the generation and mapping of magic squares to their respective orders. 
+     * This method creates a symbol table for magic squares of orders 1 through 6,
+     * skipping the order 2, since a 2x2 magic square does not exist. It then prints 
+     * the size of the created symbol table and each magic square (except for the order 2).
+     * Note: A magic square of order n is an n x n grid filled with numbers in such a way
+     * that all rows, columns, and the two main diagonals all add up to the same number.
+     */
 	public static void testCode() {
 	    SeparateChainingHashST<Integer, int[][]> st = mapOrderToSquare(6);
 	    System.out.println("Number of keys in the symbol table: " + st.size());
@@ -205,7 +239,12 @@ public class Magic {
 	    }
 	}
 
-	// Helper method to print a magic square
+	/**
+	 * Prints the magic square in a formatted manner. Each number is aligned in a column, 
+	 * with a width that accommodates the largest number in the square for readability.
+	 * 
+	 * @param square The 2D array representing a magic square to be printed.
+	 */
 	private static void printMagicSquare(int[][] square) {
 	    for (int[] row : square) {
 	        for (int val : row) {
@@ -215,7 +254,13 @@ public class Magic {
 	    }
 	}
 
-	// main method that now only calls testCode
+	/**
+	 * The entry point of the program. It calls the testCode method to demonstrate
+	 * the functionality of magic square generation and display.
+	 * 
+	 * @param args Command-line arguments (not used).
+	 */
+
 	public static void main(String[] args) {
 	    testCode();
 	}
