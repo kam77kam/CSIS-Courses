@@ -16,9 +16,9 @@ public class Module3 {
 		// Uncomment the following code to test the methods createSymbolTable
 		// and demoSymbolTable.
 //
-//		RedBlackBST<Integer, Plane> st = createSymbolTable(12);
-//		demoSymbolTable(st);
-//		System.out.println();
+		RedBlackBST<Integer, Plane> st = createSymbolTable(12);
+		demoSymbolTable(st);
+		System.out.println();
 
 		// CHALLENGE 4B:
 		// Write a block comment that compares BinarySearchST and ST
