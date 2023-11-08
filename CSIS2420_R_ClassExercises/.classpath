@@ -17,6 +17,7 @@
 	<classpathentry kind="src" path="CEHeapSort"/>
 	<classpathentry kind="src" path="CEPet-SymbolTable"/>
 	<classpathentry kind="src" path="CEBinarySearchTree"/>
+	<classpathentry kind="src" path="CEGraphUndirected"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="algs4.jar"/>
 	<classpathentry kind="output" path="bin"/>
