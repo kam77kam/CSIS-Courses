@@ -20,6 +20,7 @@
 	<classpathentry kind="src" path="CEGraphUndirected"/>
 	<classpathentry kind="src" path="CEDirectedGraphs"/>
 	<classpathentry kind="src" path="CESymbolGraph"/>
+	<classpathentry kind="src" path="CEGraphMaze"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="algs4.jar"/>
 	<classpathentry kind="output" path="bin"/>
