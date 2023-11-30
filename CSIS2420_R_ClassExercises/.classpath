@@ -18,6 +18,7 @@
 	<classpathentry kind="src" path="CESymbolGraph"/>
 	<classpathentry kind="src" path="CEGraphMaze"/>
 	<classpathentry kind="src" path="CEGraphInternet"/>
+	<classpathentry kind="src" path="CECityConnections"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-20">
 		<attributes>
 			<attribute name="module" value="true"/>
