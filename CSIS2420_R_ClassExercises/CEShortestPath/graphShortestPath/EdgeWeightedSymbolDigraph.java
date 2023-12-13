@@ -110,29 +110,5 @@ public class EdgeWeightedSymbolDigraph {
             throw new IllegalArgumentException("vertex " + v + " is not between 0 and " + (V-1));
     }
 
-
-    /**
-     * Unit tests the {@code SymbolGraph} data type.
-     *
-     * @param args the command-line arguments
-     */
-//    public static void main(String[] args) {
-//        String filename  = "";//args[0];
-//        String delimiter = "";//args[1];
-//        EdgeWeightedSymbolDigraph sg = new EdgeWeightedSymbolDigraph(filename, delimiter);
-//        EdgeWeightedDigraph graph = sg.graph();
-//        while (StdIn.hasNextLine()) {
-//            String source = StdIn.readLine();
-//            if (sg.contains(source)) {
-//                int s = sg.indexOf(source);
-//                for (Edge edge : graph.adj(s)) {
-//                    StdOut.println("   " + edge);
-//                }
-//            }
-//            else {
-//                StdOut.println("input not contain '" + source + "'");
-//            }
-//        }
-//    }
 }
 
