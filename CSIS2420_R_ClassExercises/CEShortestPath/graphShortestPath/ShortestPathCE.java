@@ -5,13 +5,34 @@ import edu.princeton.cs.algs4.DirectedEdge;
 import edu.princeton.cs.algs4.EdgeWeightedDigraph;
 import edu.princeton.cs.algs4.StdOut;
 
+/**
+ * The {@code ShortestPathCE} class calculates and prints the shortest path and
+ * total length between two specified vertices in a weighted directed graph. It
+ * uses the Dijkstra's Shortest Path algorithm from the {@code algs4} library.
+ * 
+ * <p>
+ * The main method takes a starting vertex, an ending vertex, and a file
+ * containing information about the graph's vertices, edges, and their weights.
+ * It constructs a weighted directed graph from the file using the
+ * {@code EdgeWeightedSymbolDigraph} class, performs Dijkstra's algorithm to
+ * find the shortest path, and prints the details of the path along with the
+ * total length.
+ * </p>
+ * 
+ * 
+ * @author Kamdon Bird
+ */
 public class ShortestPathCE {
 
-	public static void main(String[] args) {
-		String start = "Start";
-		String end = "End";
-
-		String fileName = "CEShortestPath/graphShortestPath/Resources/airports.txt";
+	/**
+	 * Calculates and prints the shortest path and total length between the
+	 * specified start and end vertices in a weighted directed graph.
+	 * 
+	 * @param start    the name of the starting vertex
+	 * @param end      the name of the ending vertex
+	 * @param fileName the name of the file containing graph information
+	 */
+	public static void calculateShortestPath(String start, String end, String fileName) {
 		EdgeWeightedSymbolDigraph sg = new EdgeWeightedSymbolDigraph(fileName, ",");
 		EdgeWeightedDigraph graph = sg.graph();
 
@@ -32,5 +53,13 @@ public class ShortestPathCE {
 			totalLength += weight;
 		}
 		StdOut.println("\nTotal length from " + start + " to " + end + ": " + totalLength);
+	}
+
+	public static void main(String[] args) {
+		// Example usage
+		String start = "Start";
+		String end = "End";
+		String fileName = "CEShortestPath/graphShortestPath/Resources/airports.txt";
+		calculateShortestPath(start, end, fileName);
 	}
 }
