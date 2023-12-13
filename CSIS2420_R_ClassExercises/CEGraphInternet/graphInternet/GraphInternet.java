@@ -13,13 +13,52 @@ public class GraphInternet {
 		EdgeWeightedGraph graph = new EdgeWeightedGraph(new In(fileName));
 		KruskalMST mst = new KruskalMST(graph);
 		
-		int routerVertex = 8;
+		int virtualVertex = graph.V();
 		for(Edge e: mst.edges()) {
 			int v = e.either();
 			int w = e.other(v);
+			StdOut.print(v + "-" + w + " ");
 		}
 		StdOut.println("Offices needing to be connected: ");
 		StdOut.println("Offices needing a router: ");
 		StdOut.println("Total cost: " + mst.weight());
 	}
+	
+	private static void printResults() {
+		
+	}
+	
+	/*
+	 * public class GraphInternet {
+	
+	private static void printResults(KruskalMST mst) {
+		StdOut.print("Offices needing fiber connection: ");
+		for (Edge e : mst.edges()) {
+			int v = e.either();
+			int w = e.other(v);
+			StdOut.print(v + "-" + w + " ");
+		}
+
+		int routerVertex = 8;
+		StdOut.println("\nOffices needing a router: " + routerVertex);
+		StdOut.println("Total cost: $" + String.format("%.2f", mst.weight()));
+	}
+	
+	public static void main(String[] args) {
+		// Read the graph from the file
+		String fileName = "CEGraphInternet/graphInternet/GraphInternet.txt";
+		EdgeWeightedGraph graph = new EdgeWeightedGraph(new In(fileName));
+
+		// Apply Kruskal's algorithm to find the minimum spanning tree
+		KruskalMST mst = new KruskalMST(graph);
+		
+		// Print the results
+		printResults(mst);
+		
+		
+	}
+
+	
+}
+	 */
 }
