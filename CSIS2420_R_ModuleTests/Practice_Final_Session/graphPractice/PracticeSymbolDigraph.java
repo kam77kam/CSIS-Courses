@@ -43,12 +43,17 @@ public class PracticeSymbolDigraph {
 		String place2 = "B";
 
 		BreadthFirstDirectedPaths breadthFirstPaths = new BreadthFirstDirectedPaths(digraph, sg.indexOf(place1));
-		StdOut.println("Path from " + place1 + " to " + place2 + ": " + breadthFirstPaths.pathTo(sg.indexOf(place2)));
+		if (!breadthFirstPaths.hasPathTo(sg.indexOf(place2))) {
+			StdOut.println("There is no path from " + place1 + " to " + place2);
+		}else {
 		StdOut.print("Path from " + place1 + " to " + place2 + ": ");
 		for(Integer v : breadthFirstPaths.pathTo(sg.indexOf(place2))) {
 			StdOut.print(sg.nameOf(v) + " ");
 		}
 		StdOut.println("\n");
+		}	
+		
+		
 	}
 
 }
