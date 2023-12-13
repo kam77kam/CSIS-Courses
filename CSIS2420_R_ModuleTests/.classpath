@@ -5,6 +5,7 @@
 	<classpathentry kind="src" path="Module3"/>
 	<classpathentry kind="src" path="Practice_Final"/>
 	<classpathentry kind="src" path="Practice_Final_Session"/>
+	<classpathentry kind="src" path="Final"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-20">
 		<attributes>
 			<attribute name="module" value="true"/>
