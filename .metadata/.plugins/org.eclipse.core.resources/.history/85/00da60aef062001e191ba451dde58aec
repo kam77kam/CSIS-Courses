@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package ceQuick;
+
+/**
+ * @author Kamdon Bird
+ */
+public class SortComparison {
+
+//=================TEST CLIENT=================
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

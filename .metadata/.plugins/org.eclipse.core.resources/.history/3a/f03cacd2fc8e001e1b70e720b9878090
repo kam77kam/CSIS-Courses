@@ -1,0 +1,18 @@
+package graphCityConnection;
+
+import edu.princeton.cs.algs4.EdgeWeightedGraph;
+import edu.princeton.cs.algs4.PrimMST;
+
+public class CityConnectionCE {
+
+	public static void main(String[] args) {
+		String fileName = "CECityConnections/graphCityConnections/CityConnections.csv";
+		EdgeWeightedSymbolGraph sg = new EdgeWeightedSymbolGraph(fileName, ",");
+		EdgeWeightedGraph graph = sg.graph();
+		
+		PrimMST mst = new PrimMST(graph);
+		
+		StdOut.println("Cities to connect with a bike trail: ");
+	}
+
+}

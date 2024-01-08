@@ -1,0 +1,11 @@
+package movieConnect;
+
+public class App {
+
+	 public static void main(String[] args){
+	        //Represents the startup entry of the program
+	        new StartPageJFrame();
+
+//	        new MainPageJFrame();
+	    }
+}

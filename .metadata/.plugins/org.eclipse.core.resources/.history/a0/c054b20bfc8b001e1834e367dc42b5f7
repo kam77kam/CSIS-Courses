@@ -1,0 +1,43 @@
+package movieConnect;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+public class CodeUtil {
+
+    public static String getCode(){
+        //1.Create a collection
+        ArrayList<Character> list = new ArrayList<>();//52  索引的范围：0 ~ 51
+        //2.Add the letters a-z A-Z
+        for (int i = 0; i < 26; i++) {
+            list.add((char)('a' + i));//a - z
+            list.add((char)('A' + i));//A - Z
+        }
+
+        //3.Generates 4 random letters
+        String result = "";
+        Random r = new Random();
+        for (int i = 0; i < 4; i++) {
+            //Get random index
+            int randomIndex = r.nextInt(list.size());
+            char c = list.get(randomIndex);
+            result = result + c;
+        }
+
+        //4.Concatenate the numbers 0 to 9 at the end
+        int number = r.nextInt(10);
+        //5.Concatenate random numbers to the end of result
+        result = result + number;
+        //6.Turns a string into an array of characters
+        char[] chars = result.toCharArray();//[A,B,C,D,5]
+        //7.Generates a random index in the character array
+        int index = r.nextInt(chars.length);
+        //8.Take the number on the 4 index and swap it with the number on the random index
+        char temp = chars[4];
+        chars[4] = chars[index];
+        chars[index] = temp;
+        //10.Turn the character array back into a string
+        String code = new String(chars);
+        return code;
+    }
+}

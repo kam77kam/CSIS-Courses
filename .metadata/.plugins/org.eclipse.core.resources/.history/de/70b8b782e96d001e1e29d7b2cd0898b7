@@ -1,0 +1,46 @@
+package cePet;
+
+import edu.princeton.cs.algs4.BinarySearchST;
+import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
+
+/**
+ * Application to practice the use of symbol table methods
+ * from class BinarySearchST.
+ * 
+ * @author CSIS Starter Code + Kamdon Bird
+ */
+public class PetApp {
+	
+	public static void main(String[] args) {
+		Pet[] pets = {
+				new Pet("Bobo", 50, "tortoise"),
+				new Pet("Hazel", 4, "rat"),
+				new Pet("Smokey", 5, "goldfish"),
+				new Pet("Bella", 5, "cat"),
+				new Pet("Leo", 9, "tortoise"),
+				new Pet("Garfield", 6, "cat"),
+				new Pet("Maddox", 2, "dog"),
+				new Pet("Sylvester", 7, "cat"),
+				new Pet("Wolf", 9, "dog")
+		};
+		
+		BinarySearchST<Integer, Pet> st = new BinarySearchST<>();		
+		st.put(StdRandom.uniformInt(10, 30), new Pet("Buddy", 8, "dog"));		
+		fillSymbolTable(st, pets);
+		
+
+	}
+
+	/**
+	 * Fills the symbol table with the pets. Each pet gets a unique id from the rage [10, 30)
+	 * that is randomly chosen.
+	 * 
+	 * @param st
+	 * @param pets
+	 */
+	private static void fillSymbolTable(BinarySearchST<Integer, Pet> st, Pet[] pets) {
+		// TODO
+	}
+
+}

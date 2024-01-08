@@ -1,0 +1,11 @@
+package ceMail;
+
+public class Mail {
+	enum DeliveryType{
+		AIR,
+		GROUND,
+		TWO_DAY,
+		ONE_DAY,
+		PRIORITY
+	}
+}

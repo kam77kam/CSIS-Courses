@@ -1,0 +1,101 @@
+package movieConnect;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
+import edu.princeton.cs.algs4.Graph;
+import edu.princeton.cs.algs4.SymbolGraph;
+
+public class MovieSuggestionPageJFrame extends JFrame {
+    private JTextField yourUserTextField;
+    private JTextField otherUserTextField;
+    private JTextArea resultTextArea;
+
+    public MovieSuggestionPageJFrame() {
+        setTitle("Movie Finder");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel panel = new JPanel();
+        yourUserTextField = new JTextField(15);
+        otherUserTextField = new JTextField(15);
+        JButton findMoviesButton = new JButton("Find Common Movies");
+        resultTextArea = new JTextArea(10, 30);
+        resultTextArea.setEditable(false);
+
+        panel.add(new JLabel("Your Username:"));
+        panel.add(yourUserTextField);
+        panel.add(new JLabel("Other Username:"));
+        panel.add(otherUserTextField);
+        panel.add(findMoviesButton);
+
+        findMoviesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                findAndDisplayCommonMovies();
+            }
+        });
+
+        JScrollPane scrollPane = new JScrollPane(resultTextArea);
+        panel.add(scrollPane);
+
+        add(panel);
+    }
+
+    private void findAndDisplayCommonMovies() {
+        String filename = "src/movieConnect/movies.txt";
+        String delimiter = " ";
+        SymbolGraph sg = new SymbolGraph(filename, delimiter);
+        Graph graph = sg.graph();
+
+        String yourUserName = yourUserTextField.getText();
+        String otherUserName = otherUserTextField.getText();
+
+        if (sg.contains(yourUserName) && sg.contains(otherUserName)) {
+            int yourUserIndex = sg.index(yourUserName);
+            int otherUserIndex = sg.index(otherUserName);
+
+            Iterable<Integer> kamdonMovies = graph.adj(yourUserIndex);
+            Iterable<Integer> haiyungMovies = graph.adj(otherUserIndex);
+
+            Set<Integer> haiyungMoviesSet = new HashSet<>();
+            for (int movie : haiyungMovies) {
+                haiyungMoviesSet.add(movie);
+            }
+
+            StringBuilder commonMovies = new StringBuilder();
+
+            for (int movie : kamdonMovies) {
+                if (haiyungMoviesSet.contains(movie)) {
+                    commonMovies.append(sg.nameOf(movie)).append("\n");
+                }
+            }
+
+            if (commonMovies.length() > 0) {
+                resultTextArea.setText("Movies in common with " + otherUserName + ":\n" + commonMovies.toString());
+            } else {
+                resultTextArea.setText("No common movies found with " + otherUserName + ".");
+            }
+        } else {
+            resultTextArea.setText("Your user or the specified user could not be found.");
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            MovieSuggestionPageJFrame movieFinderJFrame = new MovieSuggestionPageJFrame();
+            movieFinderJFrame.setVisible(true);
+        });
+    }
+}

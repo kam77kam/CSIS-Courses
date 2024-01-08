@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename source folder &apos;CSIS2420_R_ModuleTests/Module 3&apos; to &apos;Module3&apos;&#x0D;&#x0A;- Original project: &apos;CSIS2420_R_ModuleTests&apos;&#x0D;&#x0A;- Original element: &apos;CSIS2420_R_ModuleTests/Module 3&apos;&#x0D;&#x0A;- Renamed element: &apos;Module 3&apos;" description="Rename source folder &apos;Module 3&apos;" id="org.eclipse.jdt.ui.rename.source.folder" input="/Module 3" name="Module3" stamp="1699312557344" version="1.0"/>
+</session>

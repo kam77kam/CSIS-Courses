@@ -1,0 +1,61 @@
+package ceLinearBinary;
+
+import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+class SearchTest {
+	
+	private int numbers[] = {3,7,1,9,5,2,8,4,6,0};
+	private int sortedArray[] = {5,10,15,20,25,30,35,40,45,50,55,60,65,70,75};
+	private int emptyArray[] = {};
+	
+	//Linear Test
+	@Test
+	void linear_firstElement_returnIndex0() {
+		assertEquals(0, Search.linear(numbers, 3));
+	}
+	@Test
+	void linear_lastElement_returnLastIndex() {
+		assertEquals(14, Search.linear(numbers, 75));
+	}
+	@Test
+	void linear_elementNotInArray_returnMinusOne() {
+		assertEquals(-1, Search.linear(numbers, 11));
+	}
+	@Test
+	void linear_emptyArray_returnMinusOne() {
+		assertEquals(-1, Search.linear(emptyArray, 3));
+	}
+	@Test
+	void linear_null() {
+		assertThrows(NullPointerException.class, () -> {
+			Search.linear(null, 4);
+		});
+	}
+	
+	//Binary jUnit Tests
+	@Test
+	void binary_firstElement_returnIndex0() {
+		assertEquals(0, Search.binary(sortedArray, 5));
+	}
+	@Test
+	void binary_lastElement_returnLastIndex() {
+		assertEquals(14, Search.binary(sortedArray, 75));
+	}
+	@Test
+	void binary_elementNotInArray_returnMinusOne() {
+		assertEquals(-1, Search.binary(sortedArray, 11));
+	}
+	@Test
+	void binary_emptyArray_returnMinusOne() {
+		assertEquals(-1, Search.binary(emptyArray, 3));
+	}
+	@Test
+	void binary_null() {
+		assertThrows(NullPointerException.class, () -> {
+			Search.binary(null, 4);
+		});
+	}
+
+}

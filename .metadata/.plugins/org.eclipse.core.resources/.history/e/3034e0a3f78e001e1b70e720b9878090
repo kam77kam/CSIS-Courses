@@ -1,0 +1,10 @@
+package graphCityConnection;
+
+import edu.princeton.cs.algs4.EdgeWeightedGraph;
+import edu.princeton.cs.algs4.In;
+
+public class EdgeWeightedSymbolGraph {
+	String fileName = "graphCityConnection/CityConnections.csv";
+	EdgeWeightedGraph graph = new EdgeWeightedGraph(new In(fileName));
+	
+}

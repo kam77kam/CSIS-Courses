@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="a02.CircularQueue"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.Merge"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.StdDraw"/>
+    <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
+    <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.Knuth"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.Insertion"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.Heap"/>
+    <fullyQualifiedTypeName name="ceHeapSort.DemoHeap"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.MaxPQ"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.StdRandom"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.BinarySearchST"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.Topological"/>
+    <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.BreadthFirstPaths"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.DirectedEdge"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.Stack"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.EdgeWeightedDigraph"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.DepthFirstDirectedPaths"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.StdOut"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.Digraph"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.SymbolGraph"/>
+    <fullyQualifiedTypeName name="ceMail.Mail.DeliveryType"/>
+    <fullyQualifiedTypeName name="edu.princeton.cs.algs4.In"/>
+</qualifiedTypeNameHistroy>

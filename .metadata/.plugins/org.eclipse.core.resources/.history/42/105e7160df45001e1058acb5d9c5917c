@@ -1,0 +1,80 @@
+package ceLinearBinary;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+class SearchTest {
+	
+	private int numbers[] = {5,10,15,20,25,30,35,40,45,50,55,60,65,70,75};
+	private int emptyArray[] = {};
+	
+	@Test
+	void linear_firstElement_returnIndex0() {
+		int expectedIndex = 0;
+	    int result = Search.linear(numbers, 5);
+		assertEquals(expectedIndex, result);
+	}
+	@Test
+	void linear_middleElement_returnIndexOfElement() {
+		//expected stores the index of the list divided by 2
+		int expectedIndex = numbers.length/2;
+		int result = Search.linear(list, list[8]);
+		assertEquals(expectedIndex,result, "(Linear) Middle element found: ");
+	}
+	@Test
+	void linear_lastElement_returnLastIndex() {
+		assertEquals(14, Search.linear(numbers, 75);
+	}
+	@Test
+	void linear_elementNotInArray_returnMinusOne() {
+		int key = 1;
+		int result = Search.linear(list, key);
+		assertNotEquals(key, result,"(Linear) Element Not Found ");
+	}
+	@Test
+	void linear_emptyArray_returnMinusOne() {
+		int list[] = {};
+		int key = 1;
+		int result = Search.linear(list, key);
+		assertNotEquals(key, result,"Array Not Found ");
+	}
+	
+	//Binary jUnit Tests
+	@Test
+	void binary_null_returnIndex0() {
+		int list[] = null;
+		int key = 40;
+		int result = Search.binary(list, key);
+		//Comparing index 0 to make sure the sort array properly changed
+		assertEquals(-1, result, "Index moved properly ");
+	}
+	@Test
+	void binary_middleElement_returnIndexOfElement() {
+		int list[]= {5,10,15,20,25,30,35,40,45,50,55,60,65,70,75};
+		int key = list[list.length/2+1];
+		int result = Search.binary(list, key);
+		assertEquals(8,result, "(Binary) Found the middle");
+	}
+	@Test
+	void binary_lastElement_returnLastIndex() {
+		int list[] = {5,10,15,20,25,30,35,40,45,50,55,60,65,70,75};
+		int expectedIndex = list.length-1;
+		int result = Search.binary(list, list[expectedIndex]);
+		assertEquals(expectedIndex,result, "(Binary) Returned last element: ");
+	}
+	@Test
+	void binary_elementNoInArray_returnminusOne() {
+		int list[]= {5,10,15,20,25,30,35,40,45,50,55,60,65,70,75};
+		int key = 0;
+		int result = Search.binary(list, key);
+		assertEquals(-1,result, "(Binary) Could not find the numbers in the List");
+	}
+	@Test
+	void binary_emptyArray_returnMinusOne() {
+		int list[] = {};
+		int key = 1;
+		int result = Search.binary(list, key);
+		assertNotEquals(key, result,"(Binary) Array Not Found ");
+	}
+
+}

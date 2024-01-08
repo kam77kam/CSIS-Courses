@@ -1,0 +1,25 @@
+/**
+ * 
+ */
+package ceQuick;
+
+import java.util.ArrayList;
+
+/**
+ * @author Kamdon Bird
+ */
+public class SortComparison {
+
+	private static Integer[] getRandomNumberArray(int arraySize, int numberOfDigits) {
+		int[] array = int[arraySize];
+//		ArrayList<Integer> numbers = new ArrayList<>();
+		
+		return null;
+	}
+//=================TEST CLIENT=================
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

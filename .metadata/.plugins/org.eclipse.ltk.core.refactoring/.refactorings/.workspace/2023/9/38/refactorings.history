@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 17 resources" deleteContents="false" description="Delete 17 resources" element1="/CSIS1400_Assignments" element10="/CSIS1410_Labs" element11="/CSIS1410_ModuleQuiz" element12="/CSIS1410_Practice" element13="/CSIS2420_Assignments" element14="/CSIS2420_ClassExercises" element15="/CSIS2420_R_Assignments" element16="/CSIS2420_R_ClassExercises" element17="/CSIS-Courses" element2="/CSIS1400_Demos" element3="/CSIS1400_Final" element4="/CSIS1400_Labs" element5="/CSIS1400_Midterm" element6="/CSIS1400_Practice" element7="/CSIS1410_Assignments" element8="/CSIS1410_Final" element9="/CSIS1410_GroupProject" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="17" stamp="1695004040886"/>
+</session>

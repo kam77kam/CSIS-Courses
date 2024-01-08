@@ -1,0 +1,409 @@
+package movieConnect;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.WindowConstants;
+
+public class MainPageJFrame extends JFrame implements KeyListener, ActionListener,MouseListener {
+
+	JMenu functionJMenu = new JMenu("Function");
+	JMenu aboutJMenu = new JMenu("About us");
+
+	JMenuItem reFresh = new JMenuItem("Refresh");
+	JMenuItem reLoginItem = new JMenuItem("Sign Out");
+	JMenuItem closeItem = new JMenuItem("Close the App");
+	JMenuItem accountItem = new JMenuItem("App Creator");
+	
+	JButton dislikeButton = new JButton("Dislike");
+	JButton likeButton = new JButton("Like");
+	private JButton showLikedMoviesButton = new JButton("Show Liked Movies");
+	//JButton userInfoButton = new JButton("User Info");
+	
+	HashSet<String> remainingMovies = new HashSet<>();
+    HashSet<String> shownMovies = new HashSet<>();
+    Set<String> likedMovies = new HashSet<>(); // Container for liked movies
+    String currentMovie; // To keep track of the current displayed movie
+	String[] moviesArr = {"Avatar", "Barbie", "coco", "Forrest Gump", "john wick 4",
+			"Mission Impossible", "oppenheimer", "parasite", "Spider Man", "The Avengers",
+			"The Dark Knight", "The Shawshank Redemption", "Titanic","interstellar","leon",
+			"inception","trueman","3idiots","walle","zootopia","godfather",
+			"pursuit"};
+	JLabel jLabel;
+	final String shownMoviesFilePath = "src/movieConnect/Resources/image/shownMovies.txt";
+
+	public MainPageJFrame() {
+		// Initialize the window
+		initJFrame();
+
+		// Initialize menu
+		initJMenuBar();
+
+		// Initialize Data
+		initData();
+
+		// Initialize image
+		initImage();
+
+		// Add buttons
+		addButtons();
+		
+		generateRandomMovie();
+		
+		loadShownMovies(); // Load shown movies from file
+        remainingMovies.addAll(Arrays.asList(moviesArr));
+        remainingMovies.removeAll(shownMovies); // Remove already shown movies
+        
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            clearShownMoviesFile();
+        }));
+        
+        // Set the initial size of the window
+        this.setSize(600, 800); // for example, 800 width and 600 height
+
+		// Display the window
+		this.setVisible(true);
+	}
+
+	private void loadShownMovies() {
+		try {
+            File file = new File(shownMoviesFilePath);
+            if (file.exists()) {
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    shownMovies.add(line.trim());
+                }
+                reader.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+		
+	}
+	private void saveShownMovie(String movie) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(shownMoviesFilePath, true));
+            writer.write(movie);
+            writer.newLine();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+	private void clearShownMoviesFile() {
+        try {
+            new FileWriter(shownMoviesFilePath, false).close(); // Clear the file
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+	private void addButtons() {
+		
+
+		// Button at the top right
+		JButton topRightButton = new JButton("Friends");
+		topRightButton.setBounds(getWidth() - 110, 10, 100, 30);
+		topRightButton.addActionListener(this);
+		getContentPane().add(topRightButton);
+
+		// Button at the bottom left
+		
+		dislikeButton.setBounds(75, getHeight() - 60, 106, 106);
+		dislikeButton.setIcon(new ImageIcon("src/movieConnect/Resources/image/dislike.png"));
+
+		dislikeButton.setBorderPainted(false);
+        //Remove the button background
+		dislikeButton.setContentAreaFilled(false);
+        //Bind mouse events to the login button
+		dislikeButton.addMouseListener(this);
+
+        this.getContentPane().add(dislikeButton);
+
+
+		// Button at the bottom right
+		
+		likeButton.setBounds(440, getHeight() - 60, 106, 106);
+		likeButton.setIcon(new ImageIcon("src/movieConnect/Resources/image/like.png"));
+		likeButton.setBorderPainted(false);
+		//Remove the button background
+		likeButton.setContentAreaFilled(false);
+		//Bind mouse events to the login button
+		likeButton.addMouseListener(this);
+		this.getContentPane().add(likeButton);
+		
+		showLikedMoviesButton.setBounds(10, 10, 200, 30); // Adjust the position and size as needed
+	    showLikedMoviesButton.addActionListener(new ActionListener() {
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	            printLikedMovies();
+	        }
+	    });
+	    getContentPane().add(showLikedMoviesButton);
+	}
+
+	private void initData() {
+
+		Random r = new Random();
+		for (int i = 0; i < moviesArr.length; i++) {
+			int index = r.nextInt(moviesArr.length);
+			String temp = moviesArr[i];
+			moviesArr[i] = moviesArr[index];
+			moviesArr[index] = temp;
+
+		}
+		for (int i = 0; i < moviesArr.length; i++) {
+			System.out.print(moviesArr[i] + " ");
+		}
+		System.out.println();
+
+	}
+	
+	private void generateRandomMovie() {
+	    if (remainingMovies.isEmpty()) {
+	        System.out.println("All movies have been shown.");
+	        return;
+	    }
+
+	    Random r = new Random();
+	    List<String> list = new ArrayList<>(remainingMovies);
+	    int index = r.nextInt(list.size());
+	    String randomMovie = list.get(index);
+	    currentMovie = randomMovie; // Update current movie
+	    remainingMovies.remove(randomMovie);
+	    shownMovies.add(randomMovie);
+	    saveShownMovie(randomMovie);
+
+	    String imagePath = "src/movieConnect/Resources/image/" + randomMovie + ".jpg";
+	    ImageIcon icon = new ImageIcon(imagePath);
+	    if (jLabel != null) {
+	        getContentPane().remove(jLabel);
+	    }
+	    jLabel = new JLabel(icon);
+	    jLabel.setBounds(50, 50, 500, 550);
+	    getContentPane().add(jLabel, 0);
+	    getContentPane().repaint();
+	    getContentPane().revalidate();
+	}
+
+
+	// Initialize image
+	private void initImage() {
+
+		Random r = new Random();
+		// Select a random movie title from moviesArr
+		String randomMovie = moviesArr[r.nextInt(moviesArr.length)];
+
+		// Construct the path to the image
+		String imagePath = "src/movieConnect/Resources/image/" + randomMovie + ".jpg";
+
+		// Load the image
+		ImageIcon icon = new ImageIcon(imagePath);
+		if (jLabel != null) {
+			getContentPane().remove(jLabel); // Remove the old image
+		}
+		jLabel = new JLabel(icon);
+		jLabel.setBounds(50, 50, 500, 550);
+		getContentPane().add(jLabel, 0);
+		getContentPane().repaint(); // Repaint the content pane to update the UI
+		getContentPane().revalidate(); // Revalidate the layout
+
+		JLabel background = new JLabel(new ImageIcon("src/movieConnect/Resources/image/background5.jpg"));
+		background.setBounds(0, -25, 603, 680);
+
+		this.getContentPane().add(background);
+
+	}
+
+	private void initJMenuBar() {
+
+		// Create the menu object
+		JMenuBar jMenuBar = new JMenuBar();
+
+		// Add items to the JMenu
+		functionJMenu.add(reFresh);
+		functionJMenu.add(reLoginItem);
+		functionJMenu.add(closeItem);
+
+		aboutJMenu.add(accountItem);
+
+		// Bind an event to an entry
+		reFresh.addActionListener(this);
+		reLoginItem.addActionListener(this);
+		closeItem.addActionListener(this);
+		accountItem.addActionListener(this);
+
+		// Add JMenu two items to the JMuneBar
+		jMenuBar.add(functionJMenu);
+		jMenuBar.add(aboutJMenu);
+
+		// Set the menu for the window
+		this.setJMenuBar(jMenuBar);
+	}
+
+	private void initJFrame() {
+		// Set the width and height
+		this.setSize(603, 680);
+		// Set the title
+		this.setTitle("Movie Connect v1.0");
+		// Pin the window top
+		this.setAlwaysOnTop(true);
+		// Set the window to center
+		this.setLocationRelativeTo(null);
+		// Set off mode
+		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		// Incendiary by default
+		this.setLayout(null);
+	}
+	
+	private void printLikedMovies() {
+	    System.out.println("Liked Movies:");
+	    for (String movie : likedMovies) {
+	        System.out.println(movie);
+	    }
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// Gets the currently clicked item object
+		Object obj = e.getSource();
+
+		// Check if the clicked item is a JButton
+		if (obj instanceof JButton) {
+			JButton clickedButton = (JButton) obj;
+			String buttonText = clickedButton.getText();
+			System.out.println("Button Clicked: " + buttonText);
+			if (buttonText == "Friends")
+				this.setVisible(false);
+				new FriendsPageJFrame();
+		}
+		// Handle other action events (in this case, JMenuItems)
+		// Check which JMenuItem was clicked
+		if (obj == reFresh) {
+			// If the Refresh JMenuItem was clicked
+			System.out.println("Refresh");
+			initImage();
+		} else if (obj == reLoginItem) {
+			// If the Sign Out JMenuItem was clicked
+			System.out.println("Sign Out");
+			this.setVisible(false); // Hide the current JFrame
+			new StartPageJFrame(); // Create and display a new StartPageJFrame
+		} else if (obj == closeItem) {
+			// If the Close the App JMenuItem was clicked
+			System.out.println("Close the App");
+			System.exit(0); // Exit the application
+		}else  if (obj == accountItem) {
+			// If the App Creators JMenuItem was clicked
+			System.out.println("App Creators");
+
+			// Create a pop-up window (JDialog) to display information about the app
+			JDialog jDialog = new JDialog(); // creators
+
+			// Create a container object (JLabel) that manages images
+			JLabel jLabel = new JLabel(new ImageIcon("src/movieConnect/Resources/image/about.png"));
+
+			// Set the position and width and height of the image container
+			jLabel.setBounds(0, 0, 500, 500);
+
+			// Add the image container to the pop-up window
+			jDialog.getContentPane().add(jLabel);
+
+			// Set the size and properties of the pop-up window
+			jDialog.setSize(496, 409);
+			jDialog.setAlwaysOnTop(true);
+			jDialog.setLocationRelativeTo(null);
+			jDialog.setModal(true);
+			jDialog.setVisible(true); // Make the pop-up window visible
+		}
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		if(e.getSource() == dislikeButton) {
+			System.out.println("Dislike it.");
+			generateRandomMovie();
+		}else if(e.getSource() == likeButton) {
+			System.out.println("Like it!");
+			generateRandomMovie();
+			likedMovies.add(currentMovie); // Add the current movie to liked movies
+		
+		}
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		  if (e.getSource() == dislikeButton) {
+			  dislikeButton.setIcon(new ImageIcon("src/movieConnect/Resources/image/dislikepress.png"));
+	        } else if (e.getSource() == likeButton) {
+	        	likeButton.setIcon(new ImageIcon("src/movieConnect/Resources/image/likepress.png"));
+	        }
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		if (e.getSource() == dislikeButton) {
+			dislikeButton.setIcon(new ImageIcon("src/movieConnect/Resources/image/dislike.png"));
+        } else if (e.getSource() == likeButton) {
+        	likeButton.setIcon(new ImageIcon("src/movieConnect/Resources/image/like.png"));
+        }
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}
