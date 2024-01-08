@@ -12,13 +12,13 @@ public class Exercise1
       
       //generating numbers between 11 and 25 inclusive
       int randNumber = rand.nextInt(25) + 11;
-      while (randNumber =! 13){
-                  
+      while (randNumber != 13){
+    	  System.out.println();
       }
       System.out.println("all done");
       while (randNumber == 20){
          System.out.println("$$");
       }
-      System.out.print(number);
+      System.out.print(randNumber);
    }
 }

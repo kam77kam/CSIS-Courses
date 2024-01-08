@@ -65,11 +65,11 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 	public void enqueue(Item item) {
 		if(item == null) throw new NullPointerException(); 
 	}
-	public Item dequeue() {
+	public void dequeue() {
 		if(isEmpty()) throw new NoSuchElementException();
 		
 	}
-	public Item sample() {
+	public void sample() {
 		if(isEmpty()) throw new NoSuchElementException();
 	}
 	@Override

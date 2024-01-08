@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CSIS1400_Assignments/CSIS1400_Assignments.iml" filepath="$PROJECT_DIR$/CSIS1400_Assignments/CSIS1400_Assignments.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS1400_Demos/CSIS1400_Demos.iml" filepath="$PROJECT_DIR$/CSIS1400_Demos/CSIS1400_Demos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS1400_Final/CSIS1400_Final.iml" filepath="$PROJECT_DIR$/CSIS1400_Final/CSIS1400_Final.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS1400_Labs/CSIS1400_Labs.iml" filepath="$PROJECT_DIR$/CSIS1400_Labs/CSIS1400_Labs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS1400_Midterm/CSIS1400_Midterm.iml" filepath="$PROJECT_DIR$/CSIS1400_Midterm/CSIS1400_Midterm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS1400_Practice/CSIS1400_Practice.iml" filepath="$PROJECT_DIR$/CSIS1400_Practice/CSIS1400_Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS1410_Assignments/CSIS1410_Assignments.iml" filepath="$PROJECT_DIR$/CSIS1410_Assignments/CSIS1410_Assignments.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS1410_Final/CSIS1410_Final.iml" filepath="$PROJECT_DIR$/CSIS1410_Final/CSIS1410_Final.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS1410_GroupProject/CSIS1410_GroupProject.iml" filepath="$PROJECT_DIR$/CSIS1410_GroupProject/CSIS1410_GroupProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS1410_Labs/CSIS1410_Labs.iml" filepath="$PROJECT_DIR$/CSIS1410_Labs/CSIS1410_Labs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS1410_ModuleQuiz/CSIS1410_ModuleQuiz.iml" filepath="$PROJECT_DIR$/CSIS1410_ModuleQuiz/CSIS1410_ModuleQuiz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS1410_Practice/CSIS1410_Practice.iml" filepath="$PROJECT_DIR$/CSIS1410_Practice/CSIS1410_Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS2420_Assignments/CSIS2420_Assignments.iml" filepath="$PROJECT_DIR$/CSIS2420_Assignments/CSIS2420_Assignments.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS2420_ClassExercises/CSIS2420_ClassExercises.iml" filepath="$PROJECT_DIR$/CSIS2420_ClassExercises/CSIS2420_ClassExercises.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS2420_R_Assignments/CSIS2420_R_Assignments.iml" filepath="$PROJECT_DIR$/CSIS2420_R_Assignments/CSIS2420_R_Assignments.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS2420_R_ClassExercises/CSIS2420_R_ClassExercises.iml" filepath="$PROJECT_DIR$/CSIS2420_R_ClassExercises/CSIS2420_R_ClassExercises.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSIS2420_R_ModuleTests/CSIS2420_R_ModuleTests.iml" filepath="$PROJECT_DIR$/CSIS2420_R_ModuleTests/CSIS2420_R_ModuleTests.iml" />
+    </modules>
+  </component>
+</project>

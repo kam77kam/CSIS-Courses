@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7ae10572-101b-44a3-ad4d-769fe0f92ac0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/CSIS1400_Assignments/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/CSIS1400_Assignments/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSIS1400_Demos/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/CSIS1400_Demos/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSIS1400_Final/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/CSIS1400_Final/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSIS1400_Labs/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/CSIS1400_Labs/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSIS1400_Midterm/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/CSIS1400_Midterm/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSIS1400_Midterm/Midterm1/mid/EagleApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSIS1400_Midterm/Midterm1/mid/EagleApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSIS1400_Midterm/Midterm2/mid/Exercise1.java" beforeDir="false" afterPath="$PROJECT_DIR$/CSIS1400_Midterm/Midterm2/mid/Exercise1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSIS1400_Midterm/bin/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/CSIS1400_Midterm/bin/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSIS1400_Midterm/bin/mid/EagleApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/CSIS1400_Midterm/bin/mid/EagleApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSIS1400_Midterm/bin/mid/Exercise1.class" beforeDir="false" afterPath="$PROJECT_DIR$/CSIS1400_Midterm/bin/mid/Exercise1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSIS1400_Practice/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/CSIS1400_Practice/.classpath" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2agD8uUJ5vGJblrz2f68IAK5sEH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7ae10572-101b-44a3-ad4d-769fe0f92ac0" name="Changes" comment="" />
+      <created>1704731190412</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704731190412</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="jar://$MODULE_DIR$/CEGettingStarted/lib/algs4.jar!/" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/CEGettingStarted" expected_position="0" />
+      <src_folder value="file://$MODULE_DIR$/CELinearBinary" expected_position="1" />
+      <src_folder value="file://$MODULE_DIR$/CEArrayList-LinkedList" expected_position="2" />
+      <src_folder value="file://$MODULE_DIR$/CEStackQueue" expected_position="3" />
+      <src_folder value="file://$MODULE_DIR$/CEIterator-Recursion" expected_position="4" />
+      <src_folder value="file://$MODULE_DIR$/CEElementarySorts" expected_position="5" />
+      <src_folder value="file://$MODULE_DIR$/CEMerge" expected_position="6" />
+      <src_folder value="file://$MODULE_DIR$/CEStable" expected_position="7" />
+      <src_folder value="file://$MODULE_DIR$/CEQuicksort" expected_position="8" />
+      <src_folder value="file://$MODULE_DIR$/CEElemenaryST" expected_position="9" />
+      <src_folder value="file://$MODULE_DIR$/CEHeapSort" expected_position="10" />
+      <src_folder value="file://$MODULE_DIR$/CEBST" expected_position="11" />
+      <src_folder value="file://$MODULE_DIR$/CESymbolTable" expected_position="12" />
+      <src_folder value="file://$MODULE_DIR$/CEUndirectedGraphs" expected_position="13" />
+      <src_folder value="file://$MODULE_DIR$/CEDFSvsBFS" expected_position="14" />
+      <src_folder value="file://$MODULE_DIR$/CEDirectedGraphs" expected_position="15" />
+      <src_folder value="file://$MODULE_DIR$/CESymbolGraph" expected_position="16" />
+      <src_folder value="file://$MODULE_DIR$/CEInternet" expected_position="17" />
+      <src_folder value="file://$MODULE_DIR$/CECityConnections" expected_position="18" />
+      <src_folder value="file://$MODULE_DIR$/CEShortestPaths" expected_position="19" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/CEArrayList-LinkedList" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CEBST" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CECityConnections" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CEDFSvsBFS" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CEDirectedGraphs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CEElemenaryST" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CEElementarySorts" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CEGettingStarted" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CEHeapSort" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CEInternet" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CEIterator-Recursion" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CELinearBinary" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CEMerge" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CEQuicksort" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CEShortestPaths" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CEStable" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CEStackQueue" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CESymbolGraph" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CESymbolTable" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CEUndirectedGraphs" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="module-library">
+      <library name="junit5">
+        <CLASSES>
+          <root url="$MAVEN_REPOSITORY$/junit/junit/3.8.1/junit-3.8.1.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="algs4.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/CEGettingStarted/lib/algs4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
