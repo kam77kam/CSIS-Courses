@@ -3,6 +3,8 @@ package a05;
 import java.util.Arrays;
 import java.util.Random;
 
+import static a05.Mystery.*;
+
 /**
  * @author Kamdon Bird, Haiyang Liu
  */
@@ -96,19 +98,19 @@ public class A05 {
 			Integer[] sort4 = getRandomNumberArray(n, 7);
 
 			long start = System.nanoTime();
-			Mystery.sort1(sort1);
+			sort1(sort1);
 			double sort1Time = (System.nanoTime() - start) / 1e9;
 
 			start = System.nanoTime();
-			Mystery.sort2(sort2);
+			sort2(sort2);
 			double sort2Time = (System.nanoTime() - start) / 1e9;
 
 			start = System.nanoTime();
-			Mystery.sort3(sort3);
+			sort3(sort3);
 			double sort3Time = (System.nanoTime() - start) / 1e9;
 
 			start = System.nanoTime();
-			Mystery.sort4(sort4);
+			sort4(sort4);
 			double sort4Time = (System.nanoTime() - start) / 1e9;
 
 			System.out.printf("%9d | %8.4fs  | %8.4fs  | %8.4fs  | %8.4fs  | \n", n, sort1Time, sort2Time, sort3Time,
@@ -130,19 +132,19 @@ public class A05 {
 			Integer[] sort4 = getSortedArray(n, 7);
 
 			long start = System.nanoTime();
-			Mystery.sort1(sort1);
+			sort1(sort1);
 			double sort1Time = (System.nanoTime() - start) / 1e9;
 
 			start = System.nanoTime();
-			Mystery.sort2(sort2);
+			sort2(sort2);
 			double sort2Time = (System.nanoTime() - start) / 1e9;
 
 			start = System.nanoTime();
-			Mystery.sort3(sort3);
+			sort3(sort3);
 			double sort3Time = (System.nanoTime() - start) / 1e9;
 
 			start = System.nanoTime();
-			Mystery.sort4(sort4);
+			sort4(sort4);
 			double sort4Time = (System.nanoTime() - start) / 1e9;
 
 			System.out.printf("%9d | %8.4fs  | %8.4fs  | %8.4fs  | %8.4fs  | \n", n, sort1Time, sort2Time, sort3Time,
@@ -164,19 +166,19 @@ public class A05 {
 			Integer[] sort4 = getReversedArray(n, 7);
 
 			long start = System.nanoTime();
-			Mystery.sort1(sort1);
+			sort1(sort1);
 			double sort1Time = (System.nanoTime() - start) / 1e9;
 
 			start = System.nanoTime();
-			Mystery.sort2(sort2);
+			sort2(sort2);
 			double sort2Time = (System.nanoTime() - start) / 1e9;
 
 			start = System.nanoTime();
-			Mystery.sort3(sort3);
+			sort3(sort3);
 			double sort3Time = (System.nanoTime() - start) / 1e9;
 
 			start = System.nanoTime();
-			Mystery.sort4(sort4);
+			sort4(sort4);
 			double sort4Time = (System.nanoTime() - start) / 1e9;
 
 			System.out.printf("%9d | %8.4fs  | %8.4fs  | %8.4fs  | %8.4fs  | \n", n, sort1Time, sort2Time, sort3Time,
@@ -206,11 +208,11 @@ public class A05 {
 			}
 
 			long start = System.nanoTime();
-			Mystery.sort2(arr1);
+			sort2(arr1);
 			double sort2Time = (System.nanoTime() - start) / 1e9;
 
 			start = System.nanoTime();
-			Mystery.sort3(arr2);
+			sort3(arr2);
 			double sort3Time = (System.nanoTime() - start) / 1e9;
 
 			System.out.printf("%9d | %8.4fs  | %8.4fs  | \n", n3, sort2Time, sort3Time);

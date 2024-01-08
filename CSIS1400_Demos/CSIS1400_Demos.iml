@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Demo (Old Demos)" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/DemoArray" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/DemoBall" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/DemoClassArrays" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/DemoGuessTheNumber" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/DemoPrintPatterns" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="20" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="algs4" level="project" />
+    <orderEntry type="library" name="junit.jupiter.api" level="application" />
+    <orderEntry type="library" name="junit" level="project" />
+  </component>
+</module>

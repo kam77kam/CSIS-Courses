@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/LabAddress" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabArray" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabBall2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabCalculator" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabClassArrays" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabCountry" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabDice" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabEmployee" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabEratosthenes" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabHoppityHop" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabMarbles" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabMartians" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabMinMax" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabPartyGuest" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabPattern3" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabRandom" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabTimeTable" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabVariables" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabWhile" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="20" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="algs4" level="project" />
+    <orderEntry type="library" name="junit.jupiter.api" level="application" />
+    <orderEntry type="library" name="junit" level="project" />
+  </component>
+</module>
