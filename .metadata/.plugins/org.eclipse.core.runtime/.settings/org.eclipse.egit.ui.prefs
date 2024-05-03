@@ -1,5 +1,0 @@
-commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>Final Completed (Semester Is Over)</message>\r\n<message>Class Exercise ShortestPath Created</message>\r\n<message>Created &amp; Completed MovieConnect Group Project Version 1.0</message>\r\n<message>Class Exercise CityConnections is created and completed</message>\r\n<message>Class Exercise GraphDFSvsBFS created</message>\r\n<message>Class Exercise GraphInternet Created</message>\r\n<message>Removing MovieConnect Files to fix anything else that might need fixing</message>\r\n<message>Final Safe commit to fix everything</message>\r\n<message>git reset with adding back CESymbolGraph. MovieConnect wouldn&apos;t work</message>\r\n<message>CESymbolGraph, added RouteFinder, SymbolGraph classes added</message>\r\n</messages>
-eclipse.preferences.version=1
-repositories_view_filters=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<FilterCache/>
-resourcehistory_graph_split=500,500
-resourcehistory_rev_split=700,300

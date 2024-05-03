@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Move 0 packages to &apos;CSIS2420_R_ModuleTests/Final&apos;&#x0D;&#x0A;- Destination element: &apos;CSIS2420_R_ModuleTests/Final&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move packages" destination="=CSIS2420_R_ModuleTests/Final" flags="589830" fragments="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1702504388483" version="1.0"/>&#x0A;<refactoring comment="Delete resource &apos;Final_2420&apos;" deleteContents="true" description="Delete resource &apos;Final_2420&apos;" element1="/Final_2420" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1702504499226"/>
-</session>

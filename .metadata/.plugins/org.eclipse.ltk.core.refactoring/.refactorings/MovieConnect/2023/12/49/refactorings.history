@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy 3 packages to &apos;CSIS2420_R_Assignments/A08_FinalGroupProject&apos;&#x0D;&#x0A;- Original project: &apos;MovieConnect&apos;&#x0D;&#x0A;- Destination element: &apos;CSIS2420_R_Assignments/A08_FinalGroupProject&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     MovieConnect/src/movieConnect&#x0D;&#x0A;     MovieConnect/src/movieConnect.Resources.files&#x0D;&#x0A;     MovieConnect/src/movieConnect.Resources.image" description="Copy packages" destination="=CSIS2420_R_Assignments/A08_FinalGroupProject" element1="/src&lt;movieConnect" element2="/src&lt;movieConnect.Resources.files" element3="/src&lt;movieConnect.Resources.image" flags="589830" fragments="3" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1701707433726" version="1.0"/>
-</session>

@@ -1,5 +1,0 @@
-package graphCityConnection;
-
-public class EdgeWeightedSymbolGraph {
-	String csv = "graphCityConnection/CityConnections.csv";
-}
