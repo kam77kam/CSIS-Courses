@@ -54,6 +54,9 @@ public class SimulatorRunner {
 			for (int j = 0; j < turns.length; j++) {
 				int totalTurns = turns[j];
 				int[] spaceCounts = runSimulation(mb, p, d, totalTurns);
+				if(p.getInJail()) {
+					p.removePlayerInJail();
+				}
 				counts[j] = spaceCounts[i];
 				percentages[j] = (double) spaceCounts[i] / totalTurns * 100;
 			}
