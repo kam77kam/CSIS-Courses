@@ -76,9 +76,10 @@ public class MonopolyBoard {
 		return positions.indexOf(s);
 	}
 
-	// Method to draw a community card
-	public String drawCommunityCard() {
-		return communityCards.drawCard();
+	// Method to draw a community card and perform its action
+	public void drawAndPeformCommunity(Player player) {
+		String card = communityCards.drawCard();
+		chanceCards.performChance(card, player);
 	}
 
 	// Method to draw a chance card and perform its action
