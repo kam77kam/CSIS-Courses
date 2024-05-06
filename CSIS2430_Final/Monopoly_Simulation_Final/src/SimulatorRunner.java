@@ -1,7 +1,14 @@
 package src;
 
+/**
+ * The SimulatorRunner class simulates different strategies for playing Monopoly.
+ * It contains methods to run simulations and print the results.
+ */
 public class SimulatorRunner {
-
+	/**
+     * The main method starts the simulator.
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         MonopolyBoard mb = new MonopolyBoard();
         Player p = new Player();
@@ -10,11 +17,11 @@ public class SimulatorRunner {
         final int[] turns = { 1000, 10000, 100000, 1000000 }; // Different numbers of turns
 
         // Run simulation A
-//        for (int i = 1; i <= dataSets; i++) {
-//        	System.out.printf("%75s", "Strategy A Simulation");
-//        	System.out.print(" " + i + "\n");
-//            simulationA(mb, p, d, turns);
-//        }
+        for (int i = 1; i <= dataSets; i++) {
+        	System.out.printf("%75s", "Strategy A Simulation");
+        	System.out.print(" " + i + "\n");
+            simulationA(mb, p, d, turns);
+        }
 
         // Run simulation B
         for (int i = 1; i <= dataSets; i++) {
@@ -24,6 +31,13 @@ public class SimulatorRunner {
         }
     }
 
+    /**
+     * Simulate Strategy A.
+     * @param mb the Monopoly board
+     * @param p the player
+     * @param d the die
+     * @param turns the number of turns
+     */
     public static void simulationA(MonopolyBoard mb, Player p, Die d, int[] turns) {
         printTableHeader(turns); // Print the table header
         // Iterate over each property
@@ -68,6 +82,13 @@ public class SimulatorRunner {
         System.out.println();
     }
 
+    /**
+     * Simulate Strategy B.
+     * @param mb the Monopoly board
+     * @param p the player
+     * @param d the die
+     * @param turns the number of turns
+     */
     public static void simulationB(MonopolyBoard mb, Player p, Die d, int[] turns) {
         printTableHeader(turns); // Print the table header
         // Iterate over each property
@@ -93,9 +114,9 @@ public class SimulatorRunner {
                     if (p.inJail()) {
                         // If player is in jail and rolls doubles or is the , release them from jail
                         if (dice1 == dice2 || jailCounter % 4 == 0) {
-                            p.OutOfJail(); // Player rolls doubles, they can leave jail
+                            p.outOfJail(); // Player rolls doubles, they can leave jail
                             spaceCounts[p.getCurrentPosition()]++; // Update space counts
-                            jailCounter = 1;
+                            jailCounter = 1; // Reset jail counter
                         } else {
                         	jailCounter++;
                             p.move(0); // Player stays in jail, no movement
@@ -127,7 +148,10 @@ public class SimulatorRunner {
         System.out.println();
     }
 
-    // Method to print the table header
+    /**
+     * Print the table header.
+     * @param turns the number of turns
+     */
     public static void printTableHeader(int[] turns) {
         System.out.println("****************************************************************"
                 + "******************************************************************");
@@ -149,7 +173,12 @@ public class SimulatorRunner {
                 "|------------|------------|------------|------------|------------|------------|------------|------------|");
     }
 
-    // Method to print property data for each number of turns
+    /**
+     * Print property data for each number of turns.
+     * @param propertyName the name of the property
+     * @param counts the number of times the property was landed on
+     * @param percentages the percentage of times the property was landed on
+     */
     public static void printPropertyData(String propertyName, int[] counts, double[] percentages) {
         System.out.printf("%-25s", propertyName);
         for (int i = 0; i < counts.length; i++) {

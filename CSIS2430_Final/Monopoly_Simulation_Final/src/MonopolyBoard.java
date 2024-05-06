@@ -3,14 +3,18 @@ package src;
 import java.util.ArrayList;
 import java.util.List;
 
-//Class representing a Monopoly board
+/**
+ * Class representing a Monopoly board.
+ */
 public class MonopolyBoard {
 
-	private final List<String> positions; // List of Positions/Properties,
-	private final CommunityCards communityCards; // Community cards deck
-	private final ChanceCards chanceCards; // Chance cards deck
+	private final List<String> positions; // List of Positions/Properties
+    private final CommunityCards communityCards; // Community cards deck
+    private final ChanceCards chanceCards; // Chance cards deck
 
-	// Constructor initializes the spaces
+	/**
+     * Constructor initializes the Monopoly board.
+     */
 	public MonopolyBoard() {
 		// Adding spaces on Monopoly Board
 		positions = new ArrayList<>();
@@ -60,30 +64,46 @@ public class MonopolyBoard {
 		chanceCards = new ChanceCards();
 	}
 
-	//
-	// Method to get the total number of spaces on the board
+	/**
+     * Get the total number of spaces on the board.
+     * @return the total number of spaces
+     */
 	public int getPositionCount() {
 		return positions.size();
 	}
 
-	// Method to get the name of the space at a given index
+	/**
+     * Get the name of the space at a given index.
+     * @param i the index of the space
+     * @return the name of the space
+     */
 	public String getPositionName(int i) {
 		return positions.get(i);
 	}
 
-	// Method to get the index of a space with a given name
+	/**
+     * Get the index of a space with a given name.
+     * @param s the name of the space
+     * @return the index of the space
+     */
 	public int getPositionIndex(String s) {
 		return positions.indexOf(s);
 	}
 
-	// Method to draw a community card and perform its action
+	/**
+     * Draw a community card and perform its action for a player.
+     * @param player the player to perform the action for
+     */
 	public void drawAndPeformCommunity(Player player) {
 		String card = communityCards.drawCard();
 		chanceCards.performChance(card, player);
 	}
 
-	// Method to draw a chance card and perform its action
-    public void drawAndPerformChanceCard(Player player) {
+	/**
+     * Draw a chance card and perform its action for a player.
+     * @param player the player to perform the action for
+     */
+    public void drawAndPerformChance(Player player) {
         String card = chanceCards.drawCard();
         chanceCards.performChance(card, player);
     }

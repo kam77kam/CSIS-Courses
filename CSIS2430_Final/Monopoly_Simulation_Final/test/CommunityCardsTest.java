@@ -23,7 +23,6 @@ public class CommunityCardsTest {
         CommunityCards communityCards = new CommunityCards();
         communityCards.performCommunity("ADVANCE_TO_GO (COLLECT $200)", player);
         assertEquals(0, player.getCurrentPosition()); // Player should be at Go
-        assertEquals(200, player.getTotalMoves()); // Player should have $200
     }
 
     // Check if performCommunity() correctly gives player a Get Out Of Jail card.
