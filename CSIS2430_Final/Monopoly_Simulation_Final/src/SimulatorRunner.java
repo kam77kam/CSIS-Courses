@@ -7,13 +7,13 @@ public class SimulatorRunner {
 		Player p = new Player();
 		Die d = new Die();
 
-		int[] turns = { 1000, 10000, 100000, 1000000 }; // Different numbers of turns
+		final int[] turns = { 1000, 10000, 100000, 1000000 }; // Different numbers of turns
 
 		simulationA(mb, p, d, turns);
 		System.out.println();
 		System.out.println();
 		System.out.println();
-//		simulationB(mb, p, d, turns);
+		simulationB(mb, p, d, turns);
 
 	}
 
@@ -54,9 +54,6 @@ public class SimulatorRunner {
 			for (int j = 0; j < turns.length; j++) {
 				int totalTurns = turns[j];
 				int[] spaceCounts = runSimulation(mb, p, d, totalTurns);
-				if(p.getInJail()) {
-					p.removePlayerInJail();
-				}
 				counts[j] = spaceCounts[i];
 				percentages[j] = (double) spaceCounts[i] / totalTurns * 100;
 			}

@@ -4,32 +4,19 @@ package src;
 public class Player {
 	private int currentPosition; // Player's current position on the board
 	private int totalMoves; // Total number of moves made by the player
-	private boolean inJail; // Player's current in Jail Status
 	private boolean getOutOfJailCard; // Add a field to keep track of Get Out of Jail Free card
+	
 
 	public Player() {
 		currentPosition = 0; // Start at Go
 		totalMoves = 0; // Total Amount of Moves
-		inJail = false; // Player Jail Status
 		getOutOfJailCard = false; // Out Of Jail Free card
 
 	}
 
 	// Method to move the player
 	public void move(int steps) {
-		if (!inJail) {
-			currentPosition = (currentPosition + steps) % 40; // Mod 40 because there are 40 spaces
-		}
-		// Puts Player In Jail
-		if (currentPosition == 30) {
-			currentPosition = 10;
-			inJail = true;
-			// Checks if Player has Out Of Jail Free card
-			if (getOutOfJailCard) {
-				getOutOfJailCard = false;
-				inJail = false;
-			}
-		}
+		currentPosition = (currentPosition + steps) % 40; // Mod 40 because there are 40 spaces
 		totalMoves++; // Increment total moves
 	}
 
@@ -38,23 +25,31 @@ public class Player {
 		return currentPosition;
 	}
 
+	// Setter for current position
+	public void updateCurrentPosition(int newPosition) {
+		currentPosition = newPosition;
+	}
+
 	// Getter for total moves
 	public int getTotalMoves() {
 		return totalMoves;
 	}
 
 	// Getter for Get Out Of Jail card
-	public boolean getGetOutOfJailCard() {
+	public boolean hasGetOutOfJailCard() {
 		return getOutOfJailCard;
 	}
 
-	// Getter to check if Player in Jail
-	public boolean getInJail() {
-		return inJail;
+	public void goToJail() {
+		currentPosition = 10; // Jail position
+	    // If player has Get Out Of Jail card, use it
+	    if (getOutOfJailCard) {
+	        getOutOfJailCard = false; // Player used the card
+	    }
 	}
 
-	// Set to remove player from Jail
-	public void removePlayerInJail() {
-		inJail = false;
+	// Setter for Get Out Of Jail card
+	public void setGetOutOfJailCard(boolean hasCard) {
+	    getOutOfJailCard = hasCard;
 	}
 }

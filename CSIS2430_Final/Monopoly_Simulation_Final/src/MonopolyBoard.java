@@ -7,11 +7,13 @@ import java.util.List;
 public class MonopolyBoard {
 
 	private final List<String> positions; // List of Positions/Properties,
+	private final CommunityCards communityCards; // Community cards deck
+	private final ChanceCards chanceCards; // Chance cards deck
 
 	// Constructor initializes the spaces
 	public MonopolyBoard() {
-		positions = new ArrayList<>();
 		// Adding spaces on Monopoly Board
+		positions = new ArrayList<>();
 		positions.add("Go");
 		positions.add("Mediterranean Ave");
 		positions.add("Comm Chest #1");
@@ -52,8 +54,13 @@ public class MonopolyBoard {
 		positions.add("Park Place");
 		positions.add("Luxury Tax");
 		positions.add("Boardwalk");
+
+		communityCards = new CommunityCards();
+
+		chanceCards = new ChanceCards();
 	}
 
+	//
 	// Method to get the total number of spaces on the board
 	public int getPositionCount() {
 		return positions.size();
@@ -69,8 +76,14 @@ public class MonopolyBoard {
 		return positions.indexOf(s);
 	}
 
-//	public List<String> getProperties() {
-//		return spaces;
-//	}
+	// Method to draw a community card
+	public String drawCommunityCard() {
+		return communityCards.drawCard();
+	}
 
+	// Method to draw a chance card and perform its action
+    public void drawAndPerformChanceCard(Player player) {
+        String card = chanceCards.drawCard();
+        chanceCards.performChance(card, player);
+    }
 }
