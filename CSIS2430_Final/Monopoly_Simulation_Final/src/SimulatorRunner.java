@@ -1,15 +1,27 @@
 package src;
 
-/**
- * The SimulatorRunner class simulates different strategies for playing Monopoly.
- * It contains methods to run simulations and print the results.
- */
+import java.io.*;
+
 public class SimulatorRunner {
-	/**
+
+	 /**
      * The main method starts the simulator.
      * @param args command line arguments
      */
     public static void main(String[] args) {
+        String logFilePath = "console_log.txt";
+        // Redirect console output to a file
+        try {
+            // Create a file writer
+            FileOutputStream fos = new FileOutputStream(new File(logFilePath));
+            // Create a print stream to write to the file
+            PrintStream ps = new PrintStream(fos);
+            // Redirect standard output stream to the print stream
+            System.setOut(ps);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
         MonopolyBoard mb = new MonopolyBoard();
         Player p = new Player();
         Die d = new Die();
@@ -18,8 +30,8 @@ public class SimulatorRunner {
 
         // Run simulation A
         for (int i = 1; i <= dataSets; i++) {
-        	System.out.printf("%75s", "Strategy A Simulation");
-        	System.out.print(" " + i + "\n");
+            System.out.printf("%75s", "Strategy A Simulation");
+            System.out.print(" " + i + "\n");
             simulationA(mb, p, d, turns);
         }
 
