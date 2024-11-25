@@ -1,8 +1,8 @@
 # Program: First Assembly Program
 # Name: Kamdon Bird
-# Due Date: October 7th, 2024
+# Due Date: October 2nd, 2024
 # Course: CSIS 2810
-# Last Modified: October 31, 2024
+# Last Modified: November 13th, 2024
 # Description: Input three integers from keyboard & perform calculations & display results
 
 .data
