@@ -1,3 +1,11 @@
+/*
+ * Program: Vending Machine Servo
+ * Description: This program controls a stepper motor using a CAN bus interface by listening for position
+ *              commands via CAN bus and moves the stepper motor accordingly and dumps candy using a servo.
+ * Authors: Kamdon Bird and Jaylin Mendoza
+ * Last Updated: 11/26/2024 @ 5:31 AM
+ */
+
 #include "StepperAxis.cpp"    // Include custom library for stepper motor control
 #include <Servo.h>            // Include servo library for bucket motor control 
 #include <Adafruit_MCP2515.h> // Include library for MCP2515 CAN controller
