@@ -28,8 +28,8 @@
 
 // CAN Bus Addresses
 #define SCREEN_ADDRESS 1    // CAN address assigned to the LCD screen
-#define DISPENSER_ADDRESS 2 // CAN address assigned to the item dispenser 
-#define MY_CAN_ID 3         // Unique CAN address for this device
+#define DISPENSER_ADDRESS 3 // CAN address assigned to the item dispenser 
+#define MY_CAN_ID 2         // Unique CAN address for this device
 
 // ========================== Motor and CAN Object Initialization ========================
 Adafruit_MCP2515 CAN(CS_PIN, SI_PIN, SO_PIN, SCK_PIN);            // CAN controller instance
@@ -37,15 +37,15 @@ StepperAxis axis(MOTOR_STEPS, DIR_X_PIN, STEP_X_PIN, HOME_X_PIN); // Stepper mot
 Servo bucket;                                                     // Create a Servo object to control the bucket
 
 // =================== Predefined Position Values for the Stepper & Servo ================
-const int positions[] = {0, 8500, 17000, 25500}; // Position values for 4 different items
-const int dropPosition = 34000;                  // Position to drop items
-const int delayPosition = 3000;                  // Delay to allow motor to reach position
-const int completionValue = 5;                   // Value to signal completion
-constexpr int servoDelay = 500;                  // Delay in milliseconds to allow the motor to complete its movement
-int servoCurrentPos = 10;                        // Current angle of the servo
-int servoHomePos = 10;                           // Default home angle for the servo
-int servoMaxPos = 180;                           // Maximum angle for the servo
-int servoSpeed = 6;                              // Speed for servo movement (delay between angle changes)
+const long positions[] = {34250, 25750, 17075, 8500}; // Position values for 4 different items
+const int dropPosition = 0;                  		 	    // Position to drop items
+const int delayPosition = 3000;                       // Delay to allow motor to reach position
+const int completionValue = 5;                        // Value to signal completion
+constexpr int servoDelay = 500;                       // Delay in milliseconds to allow the motor to complete its movement
+int servoCurrentPos = 10;                             // Current angle of the servo
+int servoHomePos = 10;                                // Default home angle for the servo
+int servoMaxPos = 180;                                // Maximum angle for the servo
+int servoSpeed = 6;                                   // Speed for servo movement (delay between angle changes)
 
 
 // ================================ Setup Function =======================================
@@ -60,7 +60,7 @@ void setup() {
   CAN.filter(MY_CAN_ID);                // Set the CAN bus filter for this device's address
   
   axis.init(300, MICROSTEPS);           // Initialize stepper motor with max current and microstepping mode
-  axis.setHomeOffset(250);              // Set the home position offset (motor's zero position)
+  axis.setHomeOffset(2500);              // Set the home position offset (motor's zero position)
   axis.home();                          // Move motor to the home position (zero point)
 
   axis.setPositionIndex(0, 0);          // Set initial position index and value
@@ -69,13 +69,23 @@ void setup() {
 
   bucket.attach(SERVO_PIN);             // Attach the servo to the specified pin
   bucket.write(servoHomePos);           // Ensure the servo is in its home position
+
+  sendCANMessage(1, 5);
 }
 
 // =============================== Loop Function ========================================
 void loop() {
-  // Check if a new CAN packet is available
-  if (int packetSize = CAN.parsePacket(); packetSize > 0) { 
-    int packetContents[8] = {0};  // Array to hold the contents of the CAN packet
+  // Listen for CAN bus messages and act on them
+  int packetSize = CAN.parsePacket();               // Check for incoming CAN packets
+  if (packetSize) {                                 // If a packet is received
+    Serial.println("[INFO] CAN Packet Received.");
+    
+    int packetContents[8];                          // 8 byte array, matching the CAN frame size limit.
+    int i = 0;
+    while (CAN.available()) {                       // Read packet contents
+      packetContents[i] = CAN.read();
+      i++;
+    }
     readPacket(packetContents);   // Read the packet data into the array
     handlePacket(packetContents); // Handle the packet based on its contents
   }
@@ -100,7 +110,11 @@ void handlePacket(int packetContents[]) {
     case SCREEN_ADDRESS: 
       if (packetContents[1] >= 1 && packetContents[1] <= 4) {
         moveToPosition(packetContents[1] - 1);
-      } else {
+      } else if(packetContents[1] == 5) {
+        sendCANMessage(1, 5);
+      }
+      
+      else {
         Serial.println("[ERROR] Invalid position command.");
       }
       break;
@@ -121,19 +135,19 @@ void handlePacket(int packetContents[]) {
 
 // Moves the stepper motor to the requested position
 void moveToPosition(int positionIndex) {
-  if (positionIndex < 0 || positionIndex >= (sizeof(positions) / sizeof(positions[0]))) {
+  if (positionIndex < 0 || positionIndex >= (4)) {
     Serial.println("[ERROR] Invalid position index.");
     return;
   }
+  Serial.println(positionIndex);
+  Serial.println("help");
   axis.moveABS(positions[positionIndex]);           // Move the stepper motor to the requested position
-  delay(delayPosition);                             // Wait for motor to reach the position
-  sendCANMessage(DISPENSER_ADDRESS, positionIndex); // Send position information to the dispenser via CAN bus
+  sendCANMessage(DISPENSER_ADDRESS, positionIndex + 1); // Send position information to the dispenser via CAN bus
 }
 
 // Drops the item by moving the motor to the drop position
 void dropItem() {
   axis.moveABS(dropPosition);      // Move the motor to the drop position
-  delay(delayPosition);            // Wait for motor to reach the drop position
   dumpBucket();                    // Performs the bucket dump for the item
   CAN.beginPacket(SCREEN_ADDRESS); // Start building the CAN packet for the screen
   CAN.write(MY_CAN_ID);            // Include this device's unique ID in the packet
@@ -152,9 +166,9 @@ void sendCANMessage(int toAddress, int positionIndex) {
   CAN.write(positionIndex);   // Add the position index to the packet
   CAN.endPacket();            // Send the completed CAN packet
   // After sending a CAN packet, check if the operation was successful
-  if (!CAN.endPacket()) {
-    Serial.println("[ERROR] Failed to send CAN packet.");
-  }
+  // if (!CAN.endPacket()) {
+  //   Serial.println("[ERROR] Failed to send CAN packet.");
+  // }
 }
 
 // Tilts the servo bucket to its maximum position and then returns to the home position
