@@ -78,7 +78,7 @@ void setup() {
   bucket.write(servoHomePos);           // Ensure the servo is in its home position
   Serial.println(F("[SUCCESS] Bucket motor homed successfully"));
 
-  sendCANMessage(1, 5);
+  sendCANMessage(SCREEN_ADDRESS, completionValue); // Send program complete confirmation 
   Serial.println(F("[SUCCESS] Device completed setup\n\n"));
   Serial.println(F("[INFO] Waiting for Can Bus Messages..."));
 }
@@ -86,21 +86,12 @@ void setup() {
 // =============================== Loop Function ========================================
 void loop() {
   // Listen for CAN bus messages and act on them
-  int packetSize = CAN.parsePacket();               // Check for incoming CAN packets
-  if (packetSize) {                                 // If a packet is received
-    Serial.print(F("[INFO] CAN Packet Received ("));
-    
-    int packetContents[8];                          // 8 byte array, matching the CAN frame size limit.
-    int i = 0;
-    while (CAN.available()) {                       // Read packet contents
-      packetContents[i] = CAN.read();
-      Serial.print(F(" "));
-      Serial.print(packetContents[i]);
-      i++;
-    }
-    Serial.println(F(")"));
-    readPacket(packetContents);                     // Read the packet data into the array
-    handlePacket(packetContents);                   // Handle the packet based on its contents
+  int packetSize = CAN.parsePacket(); // Check for incoming CAN packets
+  if (packetSize) {                   // If a packet is received
+    Serial.println(F("[INFO] CAN Packet Received"));
+    int packetContents[8];            // 8 byte array, matching the CAN frame size limit.
+    readPacket(packetContents);       // Reads the CAN packet and stores the data
+    handlePacket(packetContents);     // Handle the packet based on its contents
   }
 }
 
@@ -108,14 +99,13 @@ void loop() {
 
 // Reads the CAN packet and stores the data
 void readPacket(int packetContents[]) {
-  Serial.print(F("[INFO] CAN Packet Received ("));
-  int maxSize = sizeof(packetContents) / sizeof(packetContents[0]);
-  for (int i = 0; i < maxSize && CAN.available(); ++i) {
-    packetContents[i] = CAN.read(); // Read data from CAN bus into the array
+  Serial.print(F("[INFO] CAN Packet Information:"));
+
+  for (int i = 0; i < CAN.available(); i++) {
+    packetContents[i] = CAN.read();  // Read data from CAN bus into the array
     Serial.print(F(" "));
     Serial.print(packetContents[i]);
   }
-  Serial.println(F(")"));
 }
 
 // Handles the packet based on the received command
@@ -124,25 +114,28 @@ void handlePacket(int packetContents[]) {
 
     // If the packet is from the user screen
     case SCREEN_ADDRESS: 
-      if (packetContents[1] >= 1 && packetContents[1] <= 4) {
-        moveToPosition(packetContents[1] - 1);
-      } else if(packetContents[1] == 5) {
-        sendCANMessage(1, 5);
-      }
-      
-      else {
-        Serial.println(F("[ERROR] Invalid screen command"));
-        Serial.println(packetContents[1]);
+      switch (packetContents[1]) {
+        // Item slots
+        case 1: moveToPosition(packetContents[1] - 1); break;           // Move to position 1
+        case 2: moveToPosition(packetContents[1] - 1); break;           // Move to position 2
+        case 3: moveToPosition(packetContents[1] - 1); break;           // Move to position 3
+        case 4: moveToPosition(packetContents[1] - 1); break;           // Move to position 4
+        case 5: sendCANMessage(SCREEN_ADDRESS, completionValue); break; // Send ready signal to screen
+        default:
+          Serial.print(F("[ERROR] Invalid screen command: "));
+          Serial.println(packetContents[1]);
+          break;
       }
       break;
 
     // If the packet is from the dispenser
     case DISPENSER_ADDRESS:
-      if (packetContents[1] == 1) {
-        dropItem(); 
-      } else {
-        Serial.println(F("[ERROR] Unknown dispenser command: "));
-        Serial.println(packetContents[1]);
+      switch (packetContents[1]) {
+        case 1: dropItem(); break; // Wait for Position
+        default: 
+          Serial.println(F("[ERROR] Unknown dispenser command: "));
+          Serial.println(packetContents[1]);
+          break;
       }
       break;
       
@@ -155,7 +148,7 @@ void handlePacket(int packetContents[]) {
 
 // Moves the stepper motor to the requested position
 void moveToPosition(int positionIndex) {
-  if (positionIndex < 0 || positionIndex >= (4)) {
+  if (positionIndex < 0 || positionIndex >= 4) {
     Serial.println(F("[ERROR] Invalid position index"));
     return;
   }
@@ -177,11 +170,13 @@ void dropItem() {
 
 // Sends the current position to the given address via CAN bus (toAddress, MY_CAN_ID, packetOne)  
 void sendCANMessage(int toAddress, int packetOne) {
+  // Send CAN packet
   CAN.beginPacket(toAddress); // Start building the CAN packet for the target address
   CAN.write(MY_CAN_ID);       // Add the device's unique ID to the packet
   CAN.write(packetOne);       // Add the message to the packet
   CAN.endPacket();            // Send the completed CAN packet
-  Serial.print(F("[INFO] Sent CAN bus message:  "));
+  // Serial print packet
+  Serial.print(F("[INFO] Sent CAN bus message: "));
   Serial.print(toAddress);
   Serial.print(F(" "));
   Serial.print(MY_CAN_ID);
