@@ -91,7 +91,6 @@ void loop() {
     Serial.println(F("[INFO] CAN Packet Received"));
     int packetContents[8];            // 8 byte array, matching the CAN frame size limit.
     readPacket(packetContents);       // Reads the CAN packet and stores the data
-    handlePacket(packetContents);     // Handle the packet based on its contents
   }
 }
 
@@ -101,11 +100,13 @@ void loop() {
 void readPacket(int packetContents[]) {
   Serial.print(F("[INFO] CAN Packet Information:"));
 
+  int packetContents[8];            // 8 byte array, matching the CAN frame size limit.
   for (int i = 0; i < CAN.available(); i++) {
-    packetContents[i] = CAN.read();  // Read data from CAN bus into the array
+    packetContents[i] = CAN.read(); // Read data from CAN bus into the array
     Serial.print(F(" "));
     Serial.print(packetContents[i]);
   }
+  handlePacket(packetContents);     // Handle the packet based on its contents
 }
 
 // Handles the packet based on the received command
