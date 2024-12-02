@@ -3,7 +3,7 @@
  * Description: This program controls a stepper motor using a CAN bus interface by listening for position
  *              commands via CAN bus and moves the stepper motor accordingly and dumps candy using a servo.
  * Authors: Kamdon Bird and Jaylin Mendoza
- * Last Updated: 11/26/2024 @ 5:31 AM
+ * Last Updated: 12/1/2024 @ 5:30 PM
  */
 
 #include "StepperAxis.cpp"    // Include custom library for stepper motor control
@@ -51,26 +51,36 @@ int servoSpeed = 6;                                   // Speed for servo movemen
 // ================================ Setup Function =======================================
 void setup() {
   Serial.begin(9600);                   // Initialize serial communication for debugging
+  Serial.println(F("[SUCCESS] Connected to Vending Machine Servo"));
+  
   pinMode(ENABLE_PIN, OUTPUT);          // Set the enable pin as output to control the motor state
 
-  // Initialize CAN bus with 500 kbps baud rate and check if successful
+  // Initialize CAN bus and check if successful
   if (!CAN.begin(500E3)) {                          
     while (1) delay(10);                // Stop execution if CAN bus fails to initialize
   }
+  // Filter using this CAN bus device address
   CAN.filter(MY_CAN_ID);                // Set the CAN bus filter for this device's address
+  Serial.print(F("[SUCCESS] CAN Bus Initialized and Set for ID: "));
+  Serial.println(MY_CAN_ID);
   
   axis.init(300, MICROSTEPS);           // Initialize stepper motor with max current and microstepping mode
-  axis.setHomeOffset(2500);              // Set the home position offset (motor's zero position)
+  axis.setHomeOffset(2500);             // Set the home position offset (motor's zero position)
   axis.home();                          // Move motor to the home position (zero point)
+  Serial.println(F("[SUCCESS] Stepper motor homed successfully"));
 
   axis.setPositionIndex(0, 0);          // Set initial position index and value
   axis.setSpeed(10000);                 // Set the maximum speed of the stepper motor
   axis.setMotionProfile(1, 2500, 2500); // Configure motion profile (mode, acceleration, deceleration)
+  Serial.println(F("[INFO] Stepper profile configured (Mode: 1, Accel: 2500, Decel: 2500) (Speed: 10000 steps/sec"));
 
   bucket.attach(SERVO_PIN);             // Attach the servo to the specified pin
   bucket.write(servoHomePos);           // Ensure the servo is in its home position
+  Serial.println(F("[SUCCESS] Bucket motor homed successfully"));
 
   sendCANMessage(1, 5);
+  Serial.println(F("[SUCCESS] Device completed setup\n\n"));
+  Serial.println(F("[INFO] Waiting for Can Bus Messages..."));
 }
 
 // =============================== Loop Function ========================================
@@ -78,16 +88,19 @@ void loop() {
   // Listen for CAN bus messages and act on them
   int packetSize = CAN.parsePacket();               // Check for incoming CAN packets
   if (packetSize) {                                 // If a packet is received
-    Serial.println("[INFO] CAN Packet Received.");
+    Serial.print(F("[INFO] CAN Packet Received ("));
     
     int packetContents[8];                          // 8 byte array, matching the CAN frame size limit.
     int i = 0;
     while (CAN.available()) {                       // Read packet contents
       packetContents[i] = CAN.read();
+      Serial.print(F(" "));
+      Serial.print(packetContents[i]);
       i++;
     }
-    readPacket(packetContents);   // Read the packet data into the array
-    handlePacket(packetContents); // Handle the packet based on its contents
+    Serial.println(F(")"));
+    readPacket(packetContents);                     // Read the packet data into the array
+    handlePacket(packetContents);                   // Handle the packet based on its contents
   }
 }
 
@@ -95,18 +108,21 @@ void loop() {
 
 // Reads the CAN packet and stores the data
 void readPacket(int packetContents[]) {
-  
+  Serial.print(F("[INFO] CAN Packet Received ("));
   int maxSize = sizeof(packetContents) / sizeof(packetContents[0]);
   for (int i = 0; i < maxSize && CAN.available(); ++i) {
     packetContents[i] = CAN.read(); // Read data from CAN bus into the array
+    Serial.print(F(" "));
+    Serial.print(packetContents[i]);
   }
+  Serial.println(F(")"));
 }
 
 // Handles the packet based on the received command
 void handlePacket(int packetContents[]) {
   switch (packetContents[0]) {
 
-    // If the packet is intended for the screen
+    // If the packet is from the user screen
     case SCREEN_ADDRESS: 
       if (packetContents[1] >= 1 && packetContents[1] <= 4) {
         moveToPosition(packetContents[1] - 1);
@@ -115,60 +131,62 @@ void handlePacket(int packetContents[]) {
       }
       
       else {
-        Serial.println("[ERROR] Invalid position command.");
+        Serial.println(F("[ERROR] Invalid screen command"));
+        Serial.println(packetContents[1]);
       }
       break;
 
-    // If the packet is for the dispenser
-    case DISPENSER_ADDRESS:  
+    // If the packet is from the dispenser
+    case DISPENSER_ADDRESS:
       if (packetContents[1] == 1) {
         dropItem(); 
       } else {
-        Serial.println("[ERROR] Unknown dispenser command.");
+        Serial.println(F("[ERROR] Unknown dispenser command: "));
+        Serial.println(packetContents[1]);
       }
       break;
       
     default:
-      Serial.println("[ERROR] Unknown command.");
+      Serial.print(F("[ERROR] Unknown CAN bus address: "));
+      Serial.println(packetContents[0]);
+      break;
   }
 }
 
 // Moves the stepper motor to the requested position
 void moveToPosition(int positionIndex) {
   if (positionIndex < 0 || positionIndex >= (4)) {
-    Serial.println("[ERROR] Invalid position index.");
+    Serial.println(F("[ERROR] Invalid position index"));
     return;
   }
+  Serial.print(F("[INFO] Stepper moving to positionIndex: "));
   Serial.println(positionIndex);
-  Serial.println("help");
-  axis.moveABS(positions[positionIndex]);           // Move the stepper motor to the requested position
+  axis.moveABS(positions[positionIndex]);               // Move the stepper motor to the requested position
+  Serial.print(F("[SUCCESS] Stepper moved to position "));
   sendCANMessage(DISPENSER_ADDRESS, positionIndex + 1); // Send position information to the dispenser via CAN bus
 }
 
 // Drops the item by moving the motor to the drop position
 void dropItem() {
+  Serial.print(F("[INFO] Dropping Item..."));
   axis.moveABS(dropPosition);      // Move the motor to the drop position
   dumpBucket();                    // Performs the bucket dump for the item
-  CAN.beginPacket(SCREEN_ADDRESS); // Start building the CAN packet for the screen
-  CAN.write(MY_CAN_ID);            // Include this device's unique ID in the packet
-  CAN.write(completionValue);      // Include the completion value to indicate item was dropped
-  CAN.endPacket();                 // Send the CAN packet to the screen
-  // After sending a CAN packet, check if the operation was successful
-  if (!CAN.endPacket()) {
-    Serial.println("[ERROR] Failed to send CAN packet.");
-  }
+  Serial.print(F("[SUCCESS] Dropped Item"));
+  sendCANMessage(SCREEN_ADDRESS, completionValue);
 }
 
-// Sends the current position to the given address via CAN
-void sendCANMessage(int toAddress, int positionIndex) {
+// Sends the current position to the given address via CAN bus (toAddress, MY_CAN_ID, packetOne)  
+void sendCANMessage(int toAddress, int packetOne) {
   CAN.beginPacket(toAddress); // Start building the CAN packet for the target address
   CAN.write(MY_CAN_ID);       // Add the device's unique ID to the packet
-  CAN.write(positionIndex);   // Add the position index to the packet
+  CAN.write(packetOne);       // Add the message to the packet
   CAN.endPacket();            // Send the completed CAN packet
-  // After sending a CAN packet, check if the operation was successful
-  // if (!CAN.endPacket()) {
-  //   Serial.println("[ERROR] Failed to send CAN packet.");
-  // }
+  Serial.print(F("[INFO] Sent CAN bus message:  "));
+  Serial.print(toAddress);
+  Serial.print(F(" "));
+  Serial.print(MY_CAN_ID);
+  Serial.print(F(" "));
+  Serial.print(packetOne);
 }
 
 // Tilts the servo bucket to its maximum position and then returns to the home position
